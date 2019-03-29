@@ -249,13 +249,15 @@ class HomeService extends Service {
 
         if(category.data.length > 0){
             const categoryId = this.ctx.params.id;
-            let caseList = [];
+            let caseList = [], sql = '';
 
             if(categoryId){
-                caseList = await this.ctx.service.product.getCaseList({ categoryId, enabledState: 1 });
+                sql = `SELECT T_Case.id, T_Case.categoryId, T_Case.title, T_Case.imgUrl, T_Case.isDisable, T_Case.projectLeader, T_Case.viewCount, date(T_Case.createTime) AS createTime, T_Case.content, date(T_Case.finishedTime) AS finishedTime, T_Case.metaKeywords, T_Case.metaDescription, T_CaseCate.categoryName FROM T_Case, T_CaseCate WHERE T_Case.categoryId = T_CaseCate.id AND T_CaseCate.isDisable = 0 AND T_Case.isDisable = 0 AND T_Case.categoryId = ${categoryId}`;
+                caseList = await this.ctx.service.sqliteDB.SQLiteQuery(sql);
             }
             else{
-                caseList = await this.ctx.service.product.getCaseList({ enabledState: 1 });
+                sql = `SELECT T_Case.id, T_Case.categoryId, T_Case.title, T_Case.imgUrl, T_Case.isDisable, T_Case.projectLeader, T_Case.viewCount, date(T_Case.createTime) AS createTime, T_Case.content, date(T_Case.finishedTime) AS finishedTime, T_Case.metaKeywords, T_Case.metaDescription, T_CaseCate.categoryName FROM T_Case, T_CaseCate WHERE T_Case.categoryId = T_CaseCate.id AND T_CaseCate.isDisable = 0 AND T_Case.isDisable = 0`;
+                caseList = await this.ctx.service.sqliteDB.SQLiteQuery(sql);
             }
             data.list = caseList.data;
         }

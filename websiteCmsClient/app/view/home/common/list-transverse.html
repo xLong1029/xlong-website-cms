@@ -1,3 +1,4 @@
+{% if list.length %}
 <ul class="list-transverse col-md-12">
     {% for item in list %}
         <li class="list-transverse__item">
@@ -20,3 +21,6 @@
         </li>
     {% endfor %}
 </ul>
+{% else %}
+<div class="col-md-12" style="margin-top:20px;">暂无内容</div>
+{% endif %}

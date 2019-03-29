@@ -24,7 +24,7 @@
 	    </Form>
 		<!-- 项目版权 -->
 		<div class="copyright">
-			Copyright &copy; 2018 {{ siteInfo.companyName }} 版权所有 {{ siteInfo.webRecordInfo }}
+			Copyright &copy; 2019 {{ siteInfo.companyName }} 版权所有 {{ siteInfo.webRecordInfo }}
 		</div>
 	</div>
 </template>

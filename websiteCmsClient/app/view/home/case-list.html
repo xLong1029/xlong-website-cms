@@ -41,25 +41,29 @@
     <section class="cases">
         <div class="container">
             <ul class="list-vertical">
-                {% for item in list %}
-                    <li class="col-md-3 list-vertical__item">
-                        <a href="/services/cases/detail/{{ item.id }}">
-                            <div class="list-vertical__pic">
-                                <img class="list-vertical__img" src="{{ item.imgUrl }}" onerror="defaultImg()"/>
-                            </div>
-                            <div class="list-vertical__info">
-                                <div class="list-vertical__title">{{ item.title }}</div>
-                                <div class="list-vertical__time">
-                                    <i class="fa fa-calendar"></i>完成于 {{ item.finishedTime }}</div>
-                                <div class="read-more">
-                                    <span class="read-more__btn hvr-underline-from-left">查看详情<i class="fa fa-angle-right"></i>
-                                    </span>
+                {% if list.length%}
+                    {% for item in list %}
+                        <li class="col-md-3 list-vertical__item">
+                            <a href="/services/cases/detail/{{ item.id }}">
+                                <div class="list-vertical__pic">
+                                    <img class="list-vertical__img" src="{{ item.imgUrl }}" onerror="defaultImg()"/>
                                 </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                {% endfor %}
+                                <div class="list-vertical__info">
+                                    <div class="list-vertical__title">{{ item.title }}</div>
+                                    <div class="list-vertical__time">
+                                        <i class="fa fa-calendar"></i>完成于 {{ item.finishedTime }}</div>
+                                    <div class="read-more">
+                                        <span class="read-more__btn hvr-underline-from-left">查看详情<i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="col-md-3" style="margin-top:20px;">暂无案例</li>
+                {% endif%}
                 <li class="clearfix"></li>
             </ul>
         </div>
