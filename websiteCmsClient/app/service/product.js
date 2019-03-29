@@ -61,7 +61,7 @@ class ProductService extends Service {
 
     // 获取案例列表
     async getCaseList(params, pageNo, pageSize, sTime, eTime) {
-        let sql = `SELECT T_Case.id, T_Case.categoryId, T_Case.title, T_Case.imgUrl, T_Case.isDisable, T_Case.projectLeader, T_Case.viewCount, T_Case.createTime, T_Case.content, T_Case.finishedTime, T_Case.metaKeywords, T_Case.metaDescription, T_CaseCate.categoryName FROM T_Case, T_CaseCate WHERE T_Case.categoryId = T_CaseCate.id`
+        let sql = `SELECT T_Case.id, T_Case.categoryId, T_Case.title, T_Case.imgUrl, T_Case.isDisable, T_Case.projectLeader, T_Case.viewCount, date(T_Case.createTime) AS createTime, T_Case.content, date(T_Case.finishedTime) AS finishedTime, T_Case.metaKeywords, T_Case.metaDescription, T_CaseCate.categoryName FROM T_Case, T_CaseCate WHERE T_Case.categoryId = T_CaseCate.id`
         if(params.id){
             sql += ` AND T_Case.id = ${params.id}`;
         }
