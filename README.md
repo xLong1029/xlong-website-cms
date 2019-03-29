@@ -219,7 +219,7 @@ npm run dev
 
 * 代理请求已经配置好，可在config下配置proxyTable更改
 
-##  打包
+## 打包后台项目
 1. 在 websiteCmsAdmin 项目下  
 npm run build
 
@@ -233,6 +233,28 @@ npm start
 
 * 打包后可以通过
 *  http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
+
+## 应用部署
+
+#### 构建
+
+> cd baseDir  
+> npm install --production  
+> tar -zcvf ../release.tgz .  
+
+构建完成后打包成 tgz 文件，部署的时候解压启动就可以了。
+
+#### 部署
+框架内置了 egg-cluster 来启动 Master 进程，Master 有足够的稳定性，不再需要使用 pm2 等进程守护模块。
+
+同时，框架也提供了 egg-scripts 来支持线上环境的运行和停止。
+
+首先，我们需要把 egg-scripts 模块作为 dependencies 引入：
+
+> npm i egg-scripts --save
+
+启动命令：
+> egg-scripts start --port=7001 --daemon --title=egg-server-showcase
 
 ## 作者联系方式
 QQ：381612175
