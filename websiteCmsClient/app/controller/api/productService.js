@@ -109,6 +109,7 @@ class ProductServiceController extends Controller {
 		// token存在
 		if(this.tokenExist()){
 			const params = this.ctx.request.body;
+			console.log(params);
 			const id = this.ctx.query.id;
 			res = await this.ctx.service.product.editCate(params, id);
 		}

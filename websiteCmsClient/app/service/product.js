@@ -44,7 +44,7 @@ class ProductService extends Service {
     // 修改案例分类
     async editCate(params, id) {
         if((params && Object.keys(params).length) && id){
-            return this.ctx.service.sqliteDB.GetData('T_CaseCate', params, [id]);
+            return this.ctx.service.sqliteDB.UpdateData('T_CaseCate', params, [id]);
         }
         else return { code: 403, data: [], msg: '缺少参数' };
     }
