@@ -18,5 +18,4 @@ run
 *.sw*
 *.un~
 
-/.vscode
 /app/public/admin/src/assets/css

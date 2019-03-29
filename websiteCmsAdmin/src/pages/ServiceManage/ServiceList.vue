@@ -37,25 +37,28 @@
             </Page>
             <div class="clearfix"></div>
         </div>
-        <Modal v-model="storeModel.show" width="700" :title="storeModel.title" @on-cancel="storeModalVisible(false)">
+        <Modal v-model="storeModel.show" width="800" :title="storeModel.title" @on-cancel="storeModalVisible(false)">
             <div>
-                <Form ref="modelForm" :model="modelForm" :rules="validate" :label-width="120">
+                <Form ref="modelForm" :model="modelForm" :rules="validate" :label-width="150">
                     <Form-item label="标题：" prop="title">
                         <Input v-model="modelForm.title" placeholder="请输入标题"/>
                     </Form-item>
+                    <Form-item label="简介（用于首页）：" prop="summary">
+                        <Input v-model="modelForm.summary" type="textarea" :rows="4" :maxlength="50" placeholder="请输入服务简介（不超过50个字符）"/>
+                    </Form-item>
                     <Form-item label="内容：" prop="content">
-                        <Input v-model="modelForm.content" type="textarea" :rows="4" placeholder="请输入内容"/>
+                        <Input v-model="modelForm.content" type="textarea" :rows="4" placeholder="请输入服务内容"/>
                     </Form-item>
                     <Form-item label="图标类名：" prop="iconClass">
                         <Input v-model="modelForm.iconClass" placeholder="请输入图标类名"/>
                     </Form-item>
-                    <Form-item label="显示在首页：">
+                    <Form-item label="显示在首页：" prop="showIndex">
                         <Radio-group v-model="modelForm.showIndex">
                             <Radio :label="1">是</Radio>
                             <Radio :label="0">否</Radio>
                         </Radio-group>
                     </Form-item>
-                    <Form-item label="案例链接：">
+                    <Form-item label="案例链接：" prop="caseUrl">
                         <Input v-model="modelForm.caseUrl" placeholder="请输入案例链接"/>
                     </Form-item>
                 </Form>
@@ -205,6 +208,7 @@
                 // 验证规则
                 validate: {
                     title: [{ required: true, message: '标题不能为空', trigger: 'blur'}],
+                    summary: [{ required: true, message: '简介不能为空', trigger: 'blur'}],
                     content: [{ required: true, message: '内容不能为空', trigger: 'blur'}],
                 }
             }
@@ -232,6 +236,7 @@
                 this.editId = row.id;
                 this.modelForm = {
                     title: row.title,
+                    summary:row.summary,
                     content: row.content,
                     iconClass: row.iconClass,
                     showIndex: row.showIndex,

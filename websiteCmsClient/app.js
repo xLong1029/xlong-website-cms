@@ -11,7 +11,7 @@ class AppBootHook {
         const sqlite3 = require('sqlite3').verbose();
         
         // 连接数据库
-        const db = new sqlite3.Database('./app/database/huajian.db', (err) => {
+        const db = new sqlite3.Database('./app/database/websiteCms.db', (err) => {
             if (err) {
                 console.log('无法连接数据库:', err);
             }

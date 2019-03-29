@@ -85,7 +85,7 @@ class HomeService extends Service {
     async getIndex() {
         let data = await this.getCommonInfo();
 
-        data.title = '广西华建官网首页';
+        data.title = `${data.companyName}官方网站`;
 
         const banner = await this.ctx.service.client.getBannerList({ type: 1, isDisable: 0 });
         data.banner = banner.data;

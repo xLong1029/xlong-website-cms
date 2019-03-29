@@ -14,12 +14,13 @@
 	        </Form-item>
 	        <Form-item>
 	            <Checkbox v-model="remeberPwd">记住密码</Checkbox>
-	            <!-- <router-link to="/SendVerifyCode" class="fr">忘记密码</router-link> -->
 	        </Form-item>
 	        <Form-item>
 	            <Button type="primary" long @click="submit('loginForm')" :loading="loading">登录</Button>
 	        </Form-item>
-	        <div style="text-align:center">测试使用登录账号:user2 密码:123456</div>
+	        <div style="text-align:center">超级管理员，登录账号:admin 密码:admin123</div>
+			<div style="text-align:center">普通管理员，登录账号:manager 密码:123456</div>
+			<div style="text-align:center">文章管理员，登录账号:editor 密码:123456</div>
 	    </Form>
 		<!-- 项目版权 -->
 		<div class="copyright">
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-	import { SetCookie, SetLocalS, GetLocalS, Encrypt, Decrypt } from 'common/important.js'
+	import { SetCookie, SetLocalS, GetLocalS, DelLocalS, Encrypt, Decrypt } from 'common/important.js'
 	// Api方法
 	import LoginApi from 'api/passport.js'
 	import CommonApi from 'api/common.js'
@@ -41,7 +42,7 @@
 				loading: false,
 				siteInfo: {
 					// logo
-					logo: require('assets/images/logo-green.png'),
+					logo: require('assets/images/logo.jpg'),
                     // 备案信息
                     webRecordInfo: '',
                     // 公司名称
@@ -52,9 +53,9 @@
 				// 表单信息
 				loginForm:{
 					// 用户名
-					username: 'admin',
+					username: '',
 					// 密码
-					password: 'admin123',
+					password: '',
 				},
 				// 记住密码
 				remeberPwd: false,
@@ -120,6 +121,10 @@
 									// 本地存储用户名和密码
 									SetLocalS('username', this.loginForm.username);
 									SetLocalS('password', Encrypt(this.loginForm.password));
+								}
+								else{
+									DelLocalS('username');
+									DelLocalS('password');
 								}
 								this.$store.commit('SET_USER_TOKEN', result.token);
 								

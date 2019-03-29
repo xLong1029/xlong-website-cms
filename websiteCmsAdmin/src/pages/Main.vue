@@ -51,6 +51,7 @@
     }
 </script>
 <style lang="less" scoped>
+    @import "../assets/less/color";
     .g-layout{
         position: relative;
         min-width: 1200px;
@@ -90,7 +91,7 @@
     .sidebar{
         &-title{
             height: 50px;
-            color: #9ec238;
+            color: lighten(@base_color, 30%);
             text-align:center;
             border-bottom: 1px solid #3a3d44;
 

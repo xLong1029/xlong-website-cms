@@ -148,7 +148,7 @@
                     if(res.code == 200){
                         // 设置数据
                         this.infoForm = res.data;
-                        this.infoForm.metaKeywords = StrToArr(res.data.metaKeywords, ',');
+                        this.infoForm.metaKeywords = res.data.metaKeywords ? StrToArr(res.data.metaKeywords, ',') : [];
                         this.$store.commit('SET_SITE_INFO', this.infoForm);
                     }
                     else this.$Message.warning(res.msg);

@@ -81,7 +81,7 @@
                     <Form-item label="地址：" prop="linkUrl">
                         <Input v-model="modelForm.linkUrl" placeholder="请输入链接地址"/>
                     </Form-item>
-                    <Form-item label="链接描述：">
+                    <Form-item label="链接描述：" prop="title">
                         <Input v-model="modelForm.title" placeholder="请输入链接描述（鼠标移至链接位置时显示）"/>
                     </Form-item>
                     <Form-item label="跳转类型：" prop="target">
@@ -286,7 +286,7 @@
                 this.modelForm = {
                     name: row.name,
                     linkUrl: row.linkUrl,
-                    content: row.content,
+                    title: row.title,
                     target: row.target
                 }
             }
