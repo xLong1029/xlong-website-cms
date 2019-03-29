@@ -13,14 +13,14 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 - **后端**：Egg + SQLite
 
 #### 2. 项目用到技术、框架与插件
-    [Node.js](https://github.com/nodejs)
-    [Egg.js](https://github.com/eggjs)
-    [Vue.js](https://github.com/vuejs)
-    [webpack](https://github.com/webpack)
-    [iView](https://github.com/iview/iview)
-    [egg-view-nunjucks](https://github.com/eggjs/egg-view-nunjucks)
-    [egg-cors](https://github.com/eggjs/egg-cors)
-    [Tinymce](https://github.com/tinymce/tinymce)
+[Node.js](https://github.com/nodejs)  
+[Egg.js](https://github.com/eggjs)  
+[Vue.js](https://github.com/vuejs)  
+[webpack](https://github.com/webpack)  
+[iView](https://github.com/iview/iview)  
+[egg-view-nunjucks](https://github.com/eggjs/egg-view-nunjucks)  
+[egg-cors](https://github.com/eggjs/egg-cors)  
+[Tinymce](https://github.com/tinymce/tinymce)  
 
 ## 前台展示的功能列表
 
