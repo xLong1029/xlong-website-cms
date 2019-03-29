@@ -19,6 +19,7 @@
                 <div class="m-operation">
                     <Button class="fr" type="primary" @click="submit('infoForm')">确认修改</Button>
                 </div>
+                <div class="clearfix"></div>
             </Form>
         </div>
     </div>

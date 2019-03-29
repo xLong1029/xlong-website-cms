@@ -21,7 +21,7 @@
                     <Button icon="ios-add" type="dashed" size="small" @click="kwModelVisible(true)">添加关键词</Button>
                 </Form-item>
                 <Form-item label="页面描述：">
-                    <Input v-model="infoForm.metaDescription" type="textarea" :rows="3" placeholder="请输入页面描述"/>
+                    <Input v-model="infoForm.metaDescription" type="textarea" :rows="3" :maxlength="200" placeholder="请输入页面描述（不超过200个字符）"/>
                 </Form-item>
                 <Form-item label="页面内容：">
                     <!-- 组件-富文本编辑器 -->

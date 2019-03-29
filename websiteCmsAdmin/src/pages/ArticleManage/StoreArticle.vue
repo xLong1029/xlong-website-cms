@@ -15,14 +15,14 @@
                     <Input v-model="infoForm.author" placeholder="请输入作者名称"/>
                 </Form-item>
                 <Form-item label="文章摘要：">
-                    <Input v-model="infoForm.summary" type="textarea" :rows="3" placeholder="请输入文章摘要"/>
+                    <Input v-model="infoForm.summary" type="textarea" :rows="3" :maxlength="50" placeholder="请输入文章摘要(不超过50个字符)"/>
                 </Form-item>
                 <Form-item label="关键词：">
                     <Tag v-for="(item, index) in infoForm.metaKeywords" :key="index" :name="item" closable @on-close="removeKeyword(index)">{{ item }}</Tag>
                     <Button icon="ios-add" type="dashed" size="small" @click="kwModelVisible(true)">添加关键词</Button>
                 </Form-item>
                 <Form-item label="页面描述：">
-                    <Input v-model="infoForm.metaDescription" type="textarea" :rows="3" placeholder="请输入文章描述"/>
+                    <Input v-model="infoForm.metaDescription" type="textarea" :rows="3" :maxlength="200" placeholder="请输入文章描述（不超过200个字符）"/>
                 </Form-item>
                 <Form-item label="文章内容：" prop="content">
                     <!-- 组件-富文本编辑器 -->

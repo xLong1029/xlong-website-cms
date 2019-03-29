@@ -9,7 +9,7 @@ class ArticleService extends Service {
     }
     // 获取资讯详情
     async getArticleDetail(id) {
-        const columns = ['title', 'imgUrl', 'author', 'viewCount', 'createTime', 'content', 'releaseTime', 'metaKeywords', 'metaDescription'];
+        const columns = ['title', 'imgUrl', 'summary', 'author', 'viewCount', 'createTime', 'content', 'releaseTime', 'metaKeywords', 'metaDescription'];
         return this.ctx.service.sqliteDB.GetData('T_Article', { id }, columns).then(res => {
             let row = res.data[0];
             return { code: 200, data: row };
