@@ -72,7 +72,7 @@ export default {
 				"insertdatetime table contextmenu paste code textcolor colorpicker"
 			],
 			// 工具栏设置
-			toolbar: this.toolbar || "insertfile undo redo | styleselect | fontsizeselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image | code | preview fullscreen ",
+			toolbar: this.toolbar || "insertfile undo redo | styleselect | fontsizeselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image link | code | preview fullscreen ",
 			// 上传设置
 			file_browser_callback: (field_name, url, type, win) => {
 				if (type == "file") {
