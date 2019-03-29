@@ -1,0 +1,66 @@
+
+@import "./color";
+
+// 布局样式
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.clearfix{
+    clear:both;
+}
+
+.g-mt10{
+    margin-top: 10px;
+}
+.g-mt15{
+    margin-top: 15px;
+}
+.g-mt20{
+    margin-top: 20px;
+}
+.g-mr10{
+    margin-right: 10px;
+}
+.g-mb10{
+    margin-bottom: 10px;
+}
+
+.m-title {
+    padding: 10px 0 20px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    font-weight: 700;
+    color: @base_color;
+}
+.m-content{
+    margin-top: 30px; 
+}
+
+// 动画样式
+.fade-enter-active,.fade-leave-active {
+    transition: opacity .1s ease;
+}
+
+.fade-enter,.fade-leave-active {
+    opacity: 0;
+}
+
+// 状态字体样式
+.status {
+    &-success {
+        color: #19be6b;
+    }
+    &-wait {
+        color: #ff9900;
+    }
+    &-fail {
+        color: #ed3f14;
+    }
+    &-disable {
+        color: #ccc;
+    }
+}
+

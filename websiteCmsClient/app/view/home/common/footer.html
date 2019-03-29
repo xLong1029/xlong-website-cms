@@ -1,0 +1,44 @@
+<footer class="footer">
+	 {# foot-info #}
+	<section class="foot-info">
+		<div class="container">
+			<div class="foot-info__col">
+				<div class="foot-info__qrcode">
+					<img alt="华建信息微信公众号" src="{{ footerInfo.qrcodeImg }}" onerror="defaultImg()"/>
+				</div>
+				<div class="foot-info__text">
+					扫一扫关注<br/>
+					专业团队为您解答
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="foot-info__col">
+				<div class="foot-info__title">热线电话 / 邮箱</div>
+				<div class="foot-info__cont">{{ footerInfo.contactWay }}</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="foot-info__col">
+				<div class="foot-info__title">公司地址</div>
+				<div class="foot-info__cont"> {{ footerInfo.companyAddr }}</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</section>
+	 {# foot-link #}
+	<section class="foot-link container">
+		<span class="foot-link__name">
+			<b>友情链接</b>
+		</span>
+		{% for item in fLink %}
+			{% if item.target %}
+				<a href="{{ item.linkUrl }}" title="{{ item.title }}">{{ item.name }}</a>
+			{% else %}
+				<a href="{{ item.linkUrl }}" target="_blank" title="{{ item.title }}">{{ item.name }}</a>
+			{% endif %}
+		{% endfor %}
+	</section>
+	 {# copyright #}
+	<section class="copyright container">
+		Copyright &copy; 2018 <a href="{{ website }}">{{ companyName }}</a> 版权所有 {{ webRecordInfo }}
+	</section>
+</footer>

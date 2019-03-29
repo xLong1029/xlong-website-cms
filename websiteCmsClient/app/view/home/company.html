@@ -1,0 +1,25 @@
+{% extends "./common/layout.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="/public/home/css/article.css"/>
+
+{% endblock %}
+
+{% block content %}
+
+    {% include "./common/top-banner.html" %}
+    {% include "./common/breadcrumb.html" %}
+
+    {# article #}
+    <section id="articleCont" class="article">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="article__cont">
+                    {{ content | safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

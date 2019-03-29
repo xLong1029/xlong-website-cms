@@ -1,0 +1,54 @@
+// 页面描述样式
+.m-content{
+    margin-top: 30px;
+    padding-bottom: 20px;
+    &:after{
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;;
+    }
+}
+
+.m-desc{
+    width: 700px;
+    margin-top: 20px;
+    border: 1px solid #d4ece8;
+    border-radius: 4px;
+    padding: 10px; 
+}
+
+.m-hint{
+    color: #ed3f14;
+}
+
+.m-compo-part{
+    float: left;
+    min-width: 700px;
+    max-width: 750px;
+    padding:0 30px 0 20px; 
+    height: 100%;
+    border-right: 1px solid #eee;
+}
+
+.m-test-part{
+    float: left;
+    max-width: 750px;
+    height: 100%;
+    padding:0 20px 0 30px; 
+    border-left: 1px solid #eee;
+    margin-left: -1px;
+}
+
+@media screen and (max-width: 1800px) {
+    .m-compo-part{
+        border-right: none; 
+    }
+
+    .m-test-part{
+        border-left: none;
+        border-top: 1px dashed #ccc;
+        margin: 20px 0 0 20px;
+        padding: 20px 0 0 0;
+    }
+}

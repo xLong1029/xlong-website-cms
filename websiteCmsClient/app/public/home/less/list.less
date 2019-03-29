@@ -1,0 +1,254 @@
+@charset "utf-8";
+// 引入通用配置文件
+@import "setting";
+
+.list-transverse{
+    .padding(0, 15);
+
+    &__item{
+        background: #fff;
+        position: relative;
+        cursor: pointer;
+
+        .mt(20);
+
+        &:hover{
+            .list-transverse__img{
+                transform: scale(1.1);
+            }
+    
+            .hvr-underline-from-left:before{
+                right: 0;
+            }
+        }
+    }
+
+    &__pic{
+        overflow: hidden;
+        .wd(320);
+
+        .fl;
+    }
+
+    &__img{
+        width: 100%;
+        transition: all ease .5s;
+    }
+
+    &__info{
+        background:  #fff;
+        .wd(850);
+
+        .fl;  
+        .padding(15, 15);
+    }
+
+    &__time{
+        color: #888;
+        .padding(10, 0);
+
+        .ft(12);
+
+        i{
+            .mr(10);
+        }
+    }
+
+    &__title{
+        .ft(16);
+        .ht(24);
+        .ellipsis;
+    }
+
+    &__cont{
+        color: #888;
+    }
+
+    .read-more{
+        position: absolute;
+        .bottom(15);
+    }
+}
+
+.list-vertical {
+    .mb(20);
+    
+    &__item{
+        .mt(20);
+        
+        &:hover{
+            .list-vertical__img{
+                transform: scale(1.1);
+            }
+    
+            .hvr-underline-from-left:before{
+                right: 0;
+            }
+        }
+    }
+
+    &__info{
+        background:  #fff;
+        .padding(10, 10);
+    }
+
+    &__time{
+        color: #888;
+        .padding(10, 0);
+
+        .ft(12);
+
+        i{
+            .mr(10);
+        }
+    }
+
+    &__title{
+        .ft(16);
+        .ht(24);
+        .ellipsis;
+    }
+
+    &__cont{
+        color: #888;
+    }
+
+    &__pic{
+        overflow: hidden;
+    }
+
+    &__img{
+        width: 100%;
+        .minH(178);
+        transition: all ease .5s;
+    }
+}
+
+/* 分类 */
+.category{
+    .padding(10, 0);
+    background:  #fff;
+
+    &__title{
+        .fl;
+        .margin(10, 0);
+        color: @base_color;
+        width: 5%;
+    }
+
+    &__cont{
+        .fl;
+        width: 95%;
+    }
+
+    .cate{
+        &-list{
+            &__item{
+                .fl;
+                .margin(10, 15);
+    
+                a{
+                    cursor: pointer;
+                    .padding(5, 10);
+                    .border_radius(4);
+                }
+    
+                &.active{
+                    a{
+                        background: @base_color;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 页码 */
+
+.page-list{
+    .padding(20,0);
+    text-align: center;
+
+    a{
+        .ft(16);
+        display: inline-block;
+        .padding(0,15);
+        .minH(40);
+        .lh(40);
+        
+        &.active{
+            color: #fff;
+            background: @base_color;
+            .border_radius(4);
+        }
+    }
+
+    i{
+        .ft(22);
+        .lh(40);
+    }
+    
+}
+
+@media screen and (max-width: 1200px) {
+    .list-transverse{
+        &__info{
+            width:65%;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .list-transverse{
+        &__info{
+            width:55%;
+        }
+    }
+
+    .list-vertical-item{
+        .fl;
+
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list-transverse{
+        &__info{
+            width:100%;
+        }
+
+        &__pic{
+            display: none;
+        }
+
+        .read-more{
+            position: relative;
+            bottom:auto;
+        }
+    }
+
+    .list-vertical-item{            
+        width: 100%;
+        float: inherit;
+    }
+
+    .category{
+    
+        &__title{
+            float: none;            
+            color: @base_color;
+            width: 100%;
+            text-align: center;
+
+            .ft(16);
+            .margin(10, 0);
+        }
+    
+        &__cont{
+            float: none;
+            width: 100%;
+        }
+    }
+}

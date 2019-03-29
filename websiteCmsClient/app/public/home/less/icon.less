@@ -1,0 +1,33 @@
+@charset "utf-8";
+// 引入通用配置文件
+@import "setting";
+
+/* icon-content */
+
+.icon-content{
+    .mt(15);
+    .mb(15);
+
+    .page-header{
+        .ft(20);
+        .mt(20);
+        .mb(15);
+        color: @base_color;
+    }
+
+    > section{
+        :after{
+            .clr;
+        }
+    }
+}
+
+.fontawesome-icon-list{
+    > div{
+        .mb(15);
+    }
+
+    i{
+        .mr(10);
+    }
+}

@@ -1,0 +1,130 @@
+{% extends "./common/layout.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="/public/common/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="/public/home/css/index.css"/>
+
+{% endblock %}
+
+{% block content %}
+    {# banner #}
+    <section class="banner">
+        {% if banner.length %}
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for item in banner %}
+                        <div class="swiper-slide">
+                            <a href="{{ item.linkUrl }}">                                 
+                                <img src="{{ item.imgUrl }}" onerror="defaultImg()"/>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <i class="banner-prev-btn fa fa-angle-left"></i>
+                <i class="banner-next-btn fa fa-angle-right"></i>
+                <div class="swiper-pagination"></div>
+            </div>            
+        {% else %}
+            <img src="/public/home/images/default-banner.jpg" onerror="defaultImg()"/>
+        {% endif %}
+    </section>
+    {# compnay #}
+    <section class="company common-frame">
+        <div class="container">
+            <div class="col-md-6">
+                <div class="common-title">公司简介</div>
+                <div class="common-cont">
+                    <p style="text-indent: 2em;">{{ companyIntro }}</p>
+                    <div class="read-more">
+                        <a class="read-more__btn hvr-underline-from-left" href="/about/company">了解更多<i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 company__img">
+                <img src="{{ companyImg }}" onerror="defaultImg()">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    {# services #}
+    <section class="services common-frame">
+        <div class="container">
+            <div class="common-title">产品服务</div>
+            <div class="common-cont">
+                {% for item in service %}
+                <section class="col-md-4 services__col">
+                    <div class="col-xs-3">
+                        <div class="services__icon hvr-radial-out">
+                            <i class="fa {{ item.iconClass }}"></i>
+                        </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="services__title">{{ item.title }}</div>
+                        <div class="services__cont">{{ item.summary }}</div>
+                        <div class="read-more">
+                            <a class="read-more__btn hvr-underline-from-left" href="/services/intro">了解更多<i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {# news #}
+    <section class="news common-frame">
+        <div class="container">
+            <div class="common-title">新闻资讯
+            <a class="read-more__btn hvr-underline-from-left" href="/news">更多资讯<i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+            <div class="common-cont">
+                {% for item in news %}
+                <section class="col-md-3 news__col">
+                    <a href="/news/detail/{{ item.id }}">
+                        <div class="news__pic">
+                            <img class="news__img" src="{{ item.imgUrl }}" onerror="defaultImg()"/>
+                        </div>
+                        <div class="news__info">
+                            <div class="news__title">{{ item.title }}</div>
+                            <div class="news__time">
+                                <i class="fa fa-calendar"></i>{{ item.releaseTime }}</div>
+                            <div class="news__cont">{{ item.summary }}</div>
+                            <div class="read-more">
+                                <span class="read-more__btn hvr-underline-from-left">查看详情<i class="fa fa-angle-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block script %}
+
+    <script src="/public/common/swiper/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            autoHeight: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.banner-prev-btn',
+                prevEl: '.banner-next-btn'
+            }
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+<header class="header">
+    <div class="container">
+        <div class="col-md-12">
+            <section class="logo">
+                <img src="{{ logo }}" alt="{{ companyName }}" onerror="defaultImg()"/>
+            </section>
+            {# navbar #}
+            <section class="navbar">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="navbar-list">
+                    {% for item in nav %}
+                        {% if item.children.length %}
+                            <li class="navbar-list__item nav-dropdown-btn">
+                                <a class="hvr-ripple-in">{{ item.name }}
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="nav-dropdown-menu">
+                                    {% for child in item.children %}
+                                        <li class="nav-dropdown-menu__item" data-url="{{ child.url }}">
+                                            <a href="{{ child.url }}">{{ child.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="navbar-list__item" data-url="{{ item.url }}">
+                                <a class="hvr-ripple-in" href="{{ item.url }}">{{ item.name }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</header>
+{# 遮罩 #}
+<div class="mask"></div>
+
+<script type="text/javascript">
+    $(function () {
+        // 导航
+        var $navDropdownBtn = $('.nav-dropdown-btn'),
+            $navbarToggle = $('.navbar-toggle'),
+            $navbarList = $('.navbar-list'),
+            $navbarItem = $('.navbar-list__item'),
+            $navDropDownItem = $('.nav-dropdown-menu__item'),
+            $mask = $('.mask');
+
+        $navDropdownBtn.hover(function () {
+            $(this).children('.nav-dropdown-menu').stop(true).slideDown();
+        }, function () {
+            $(this).children('.nav-dropdown-menu').stop(true).slideUp();
+        });
+
+        $navbarToggle.on('click', function () {
+            $navbarList.toggle();
+            if($navbarList.is(':hidden')){
+                $mask.removeClass('show');
+            }
+            else{
+                $mask.addClass('show');
+            }
+        })
+
+        $navbarItem.each(function () {
+            let pathname = window.location.pathname;
+            if (pathname.indexOf($(this).data('url')) != -1) {
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+        })
+
+        $navDropDownItem.each(function () {
+            let pathname = window.location.pathname;
+            if (pathname.indexOf($(this).data('url')) != -1) {
+                $('.navbar-list__item').removeClass('active');
+                $('.nav-dropdown-menu__item').removeClass('active');
+                $(this).addClass('active');
+                $(this) .parent().parent().addClass('active');
+            }
+        })
+    })
+</script>

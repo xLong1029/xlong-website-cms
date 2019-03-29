@@ -1,0 +1,41 @@
+{% extends "./common/layout.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="/public/home/css/article.css"/>
+
+{% endblock %}
+
+{% block content %}
+
+    {% include "./common/top-banner.html" %}
+    {% include "./common/breadcrumb.html" %}
+
+    {# article #}
+    <section id="articleCont" class="article">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="article__title">{{ article.title }}</div>
+                <div class="article__info">                    
+                    {% if article.source %}
+                        <span>来源：{{ article.source }}</span>
+                    {% endif %}
+
+                    {% if article.author %}
+                        <span>作者：{{ article.author }}</span>
+                    {% elif article.projectLeader %}
+                        <span>项目负责人：{{ article.projectLeader }}</span>
+                    {% endif %}
+                    
+                    {% if article.releaseTime %}
+                        <span>发布时间：{{ article.releaseTime }}</span>
+                    {% elif article.finishedTime %}
+                        <span>项目完成时间：{{ article.finishedTime }}</span>
+                    {% endif %}
+                </div>
+                <div class="article__cont">{{ article.content | safe }}</div>                
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

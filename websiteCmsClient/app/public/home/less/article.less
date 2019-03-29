@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+// 引入通用配置文件
+@import "setting";
+
+/* 文章页 */
+
+.article {
+    .padding(15, 0);
+
+    &__title{
+        text-align: center;
+        color: @base_color;
+
+        .ft(20);
+    }
+
+    &__info{        
+        color: #888;
+        text-align: center;
+
+        .mt(10);
+        .ft(12);
+
+        > span{
+            .margin(0, 10);
+        }
+    }
+
+    &__cont{
+        .mt(20);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .article {
+        &__title{
+            text-align: left;
+
+            .ft(18);
+        }
+
+        &__info{
+            text-align: left;
+            > span{
+                display: block;
+
+                .margin(2, 0);
+            }
+        }
+    }
+}

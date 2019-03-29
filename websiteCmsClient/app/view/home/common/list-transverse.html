@@ -1,0 +1,22 @@
+<ul class="list-transverse col-md-12">
+    {% for item in list %}
+        <li class="list-transverse__item">
+            <a href="/news/detail/{{ item.id }}">
+                <div class="list-transverse__pic">
+                    <img class="list-transverse__img" src="{{ item.imgUrl }}" onerror="defaultImg()"/>
+                </div>
+                <div class="list-transverse__info">
+                    <div class="list-transverse__title">{{ item.title }}</div>
+                    <div class="list-transverse__time">
+                        <i class="fa fa-calendar"></i>{{ item.releaseTime }}</div>
+                    <div class="list-transverse__cont">{{ item.summary }}</div>
+                    <div class="read-more">
+                        <span class="read-more__btn hvr-underline-from-left">查看详情<i class="fa fa-angle-right"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

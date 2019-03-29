@@ -1,0 +1,50 @@
+{
+  "name": "huajian_web_test",
+  "version": "1.0.0",
+  "description": "a test project for huajian web",
+  "private": true,
+  "dependencies": {
+    "await-stream-ready": "^1.0.1",
+    "egg": "^2.2.1",
+    "egg-cors": "^2.1.2",
+    "egg-multipart": "^2.4.0",
+    "egg-scripts": "^2.11.0",
+    "egg-static": "^2.1.1",
+    "egg-view-nunjucks": "^2.2.0",
+    "moment": "^2.24.0",
+    "sequelize": "^4.42.0",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.14.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-huajian_web_test",
+    "stop": "egg-scripts stop --title=egg-server-huajian_web_test",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "381612175@qq.com",
+  "license": "MIT"
+}
