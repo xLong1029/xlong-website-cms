@@ -194,9 +194,9 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 ```
 
 ## 本地运行
-安装SqLite数据库和Node.js环境，建议先启动前台项目再启动后台项目
+需要安装SqLite数据库和Node.js环境，建议先启动前台项目再启动后台项目。
 
-### 前台项目
+#### 前台项目
 1. 进入前台目录
 cd ./websiteCmsClient
 2. 安装前台依赖
@@ -205,7 +205,7 @@ npm install
 npm run dev
 4. 访问地址：http://localhost:6060/index 或 http://127.0.0.1:6060
 
-### 后台项目
+#### 后台项目
 1. 进入后台目录
 cd ./websiteCmsAdmin 
  
