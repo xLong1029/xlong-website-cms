@@ -182,8 +182,8 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │  └─Image // 图片相关组件
 │  │
 │  ├─pages // 页面组件
-│  │    AccoutnManage // 账户管理
-│  │    ArticleManage // 文章管理
+│  │    AccoutnManage.vue // 账户管理
+│  │    ArticleManage.vue // 文章管理
 │  │    ...
 │  │    SecondPane.vue // 用来显示三级路由的容器
 │  │    Main.vue // 主框架
