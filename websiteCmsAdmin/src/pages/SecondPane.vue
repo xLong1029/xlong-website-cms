@@ -4,7 +4,3 @@
         <router-view></router-view>
     </transition>
 </template>
-<script>
-</script>
-<style lang="less" scoped>
-</style>

@@ -1,7 +1,7 @@
 {
-  "name": "xlong_admin",
+  "name": "xlong-website-cms",
   "version": "1.0.0",
-  "description": "a management system for testing only",
+  "description": "xlong-website-cms",
   "author": "xLong <381612175@qq.com>",
   "private": true,
   "scripts": {

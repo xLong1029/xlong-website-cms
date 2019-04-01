@@ -1,7 +1,7 @@
 {
-  "name": "huajian_web_test",
+  "name": "xlong-website-cms",
   "version": "1.0.0",
-  "description": "a test project for huajian web",
+  "description": "xlong-website-cms",
   "private": true,
   "dependencies": {
     "await-stream-ready": "^1.0.1",
@@ -45,6 +45,6 @@
     "type": "git",
     "url": ""
   },
-  "author": "381612175@qq.com",
+  "author": "xLong <381612175@qq.com>",
   "license": "MIT"
 }

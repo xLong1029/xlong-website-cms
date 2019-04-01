@@ -22,6 +22,27 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 [egg-cors](https://github.com/eggjs/egg-cors)  
 [Tinymce](https://github.com/tinymce/tinymce)  
 
+## 部分项目运行截图
+* 前台页面
+
+![Image text](static/images/screen-1.gif)
+
+![Image text](static/images/screen-2.gif)
+
+![Image text](static/images/screen-3.gif)
+
+![Image text](static/images/screen-4.gif)
+
+* 后台页面
+
+![Image text](static/images/screen-5.gif)
+
+![Image text](static/images/screen-6.gif)
+
+![Image text](static/images/screen-7.gif)
+
+![Image text](static/images/screen-8.gif)
+
 ## 前台展示的功能列表
 
 - **首页**：轮播图、公司简介、产品服务列表、新闻资讯
@@ -36,7 +57,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 ## 后台管理的功能列表
 
-账户分超级管理、普通管理员和文章管理员，不同角度拥有不同的操作权限
+账户分超级管理、普通管理员和文章管理员，不同角色拥有不同的操作权限
 
 - **后台账户管理**
 - **导航管理**
@@ -74,23 +95,26 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │
 ├─app
 │  │  router.js // 路由配置
-│  │
+|  |
+│  ├─database
+│  │     websiteCms.db // SQLite数据库
+│  │     数据库设计.docx // 数据库设计文档
+|  |
 │  ├─controller
-│  │  |
-│  │  ├─admin.js // 后台相关controller
-│  │  ├─home.js // 前台相关controller
+│  │  │  admin.js // 后台相关controller
+│  │  │  home.js // 前台相关controller
 |  |  |
 |  |  └─api // api服务，主要是为了给后台使用
-│  │     ├─accountService.js // 账户管理相关controller
-│  │     ├─articleService.js // 文章管理相关controller
-│  │     ├─clientService.js // 客户端管理相关controller
-│  │     ├─infoService.js // 信息管理相关controller
-│  │     ├─productService.js // 产品服务相关controller
-│  │     ├─storageService.js // 存储服务controller
-│  │     └─userService.js // 用户信息管理相关controller    
+│  │     accountService.js // 账户管理相关controller
+│  │     articleService.js // 文章管理相关controller
+│  │     clientService.js // 客户端管理相关controller
+│  │     infoService.js // 信息管理相关controller
+│  │     productService.js // 产品服务相关controller
+│  │     storageService.js // 存储服务controller
+│  │     userService.js // 用户信息管理相关controller    
 |  |
 │  ├─extend
-│  │      helper.js // 用来提供一些实用的 utility 函数
+│  │     helper.js // 用来提供一些实用的 utility 函数
 │  │
 │  ├─public
 │  │  │
@@ -104,27 +128,27 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │  └─home // 前台项目静态资源
 │  │
 │  ├─service // 用来执行具体的操作
-│  │      sqliteDB.js // Sqlite查询封装方法
-│  │      ccount.js // 账户相关服务 
-│  │      article.js // 文章相关服务
-│  │      client.js // 客户端相关服务
-│  │      common.js // 通用服务 
-│  │      home.js // 前台服务
-│  │      info.js // 信息相关服务
-│  │      product.js // 产品相关服务 
-│  │      user.js // 用户相关服务
+│  │    sqliteDB.js // Sqlite查询封装方法
+│  │    ccount.js // 账户相关服务 
+│  │    article.js // 文章相关服务
+│  │    client.js // 客户端相关服务
+│  │    common.js // 通用服务 
+│  │    home.js // 前台服务
+│  │    info.js // 信息相关服务
+│  │    product.js // 产品相关服务 
+│  │    user.js // 用户相关服务
 │  │
 │  └─view // 模板文件
-│      └─home // 前台模板文件
+│       └─home // 前台模板文件
 │
 ├─config
-│      config.default.js // 项目配置相关
-│      plugin.js // 插件
+│     config.default.js // 项目配置相关
+│     plugin.js // 插件
 │
 └─test // 测试相关
     └─app
         └─controller
-                home.test.js
+            home.test.js
 ```
 
 #### 2. websiteCmsAdmin 后台项目
@@ -141,11 +165,16 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 ├─.vscode // vscode配置，用于配置less
 │
 ├─src
-│  ├─main.js // 项目入口js
-│  ├─app.js // 根组件
+│  │  main.js // 项目入口js
+│  │  app.js // 根组件
 │  │
 │  ├─assets // 资源目录，这里的资源会被wabpack构建
 │  ├─api // api接口文件
+│  ├─theme // iView主题样式
+│  ├─store  应用级数据（state） 
+│  │
+│  ├─mock // 测试数据
+│  │    city.json // 省市数据
 │  │
 │  ├─components // 功能组件
 │  │  |
@@ -153,38 +182,32 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │  └─Image // 图片相关组件
 │  │
 │  ├─pages // 页面组件
-│  │  |
-│  │  ├─AccoutnManage // 账户管理
-│  │  ├─ArticleManage // 文章管理
-│  │  ...
-│  │  ├─SecondPane.vue // 用来显示三级路由的容器
-│  │  └─Main.vue // 主框架
+│  │    AccoutnManage // 账户管理
+│  │    ArticleManage // 文章管理
+│  │    ...
+│  │    SecondPane.vue // 用来显示三级路由的容器
+│  │    Main.vue // 主框架
 │  │
 │  ├─mixins // 混合模块
-│  │  |
-│  │  ├─city_select.js // 城市联级选择
-│  │  ├─email_complete.js // 文章管理
-│  │  ├─page.js // 页码配置
-│  │  ├─store_model.js // 存储弹窗
-│  │  ├─table_operate.js // 表格操作
-│  │  ├─table_query.js // 表格查询
-│  │  └─upload_img.js // 上传图片
+│  │    city_select.js // 城市联级选择
+│  │    email_complete.js // 文章管理
+│  │    page.js // 页码配置
+│  │    store_model.js // 存储弹窗
+│  │    table_operate.js // 表格操作
+│  │    table_query.js // 表格查询
+│  │    upload_img.js // 上传图片
 │  │
 │  ├─common // 通用js模块
-│  │  |
-│  │  ├─common.js // 通用工具
-│  │  ├─important.js // 封装一些重要函数
-│  │  ├─table_setting.js // 封装一些iView表格按钮渲染
-│  │  └─validate.js // 封装一些iView表单验证方法
+│  │    common.js // 通用工具
+│  │    important.js // 封装一些重要函数
+│  │    table_setting.js // 封装一些iView表格按钮渲染
+│  │    validate.js // 封装一些iView表单验证方法
 │  │
 │  ├─tools
-|  |  └─index.js// 封装axios请求等工具
-│  │
-│  ├─theme // iView主题样式
-│  ├─store  应用级数据（state）    
+|  |    index.js// 封装axios请求等工具   
 │  │
 │  └─router
-│      └─index.js // 路由配置
+│       index.js // 路由配置
 │
 ├─static // 静态资源
 │
@@ -198,38 +221,32 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 #### 前台项目
 1. 进入前台目录
-cd ./websiteCmsClient
+> cd ./websiteCmsClient
 2. 安装前台依赖
-npm install
+> npm install
 3. 运行前台项目
-npm run dev
-4. 访问地址：http://localhost:6060/index 或 http://127.0.0.1:6060
+> npm run dev
+4. 访问地址：http://localhost:6060/index
 
 #### 后台项目
 1. 进入后台目录
-cd ./websiteCmsAdmin 
- 
+> cd ./websiteCmsAdmin 
 2. 安装后台依赖  
-npm install 
-
+> npm install 
 3. 运行后台项目  
-npm run dev
-
+> npm run dev
 4. 访问地址：http://localhost:6061/admin
 
 * 代理请求已经配置好，可在config下配置proxyTable更改
 
 ## 打包后台项目
 1. 在 websiteCmsAdmin 项目下  
-npm run build
-
-2. 将打包好的dist文件复制到'websiteCmsClient\app\public\admin'目录下
-
+> npm run build
+2. 将打包好的dist文件复制到'websiteCmsClient\app\public\admin'目录下  
 3. 在 websiteCmsClient 项目下   
-npm install --production
-
+> npm install --production
 4. 在 websiteCmsClient 项目启动  
-npm start
+> npm start
 
 * 打包后运行 websiteCmsClient 可以通过 http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
 
@@ -237,7 +254,7 @@ npm start
 
 #### 构建
 
-> cd baseDir  
+> cd ./websiteCmsClient  
 > npm install --production  
 > tar -zcvf ../release.tgz .  
 
