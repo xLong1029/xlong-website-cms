@@ -80,5 +80,10 @@
                 $(this) .parent().parent().addClass('active');
             }
         })
+
+        $mask.on('click', function () {
+            $navbarList.hide();
+            $(this).removeClass('show');
+        })
     })
 </script>
