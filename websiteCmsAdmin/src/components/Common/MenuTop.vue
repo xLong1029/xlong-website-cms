@@ -34,7 +34,7 @@
 
 	export default {
 		computed: {
-            ...mapGetters([ 'sidebarSpan', 'user', 'nick' ]),
+            ...mapGetters([ 'sidebarSpan', 'user' ]),
         },
         data() {
             return{
