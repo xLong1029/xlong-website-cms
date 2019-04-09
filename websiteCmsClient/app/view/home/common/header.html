@@ -62,14 +62,14 @@
             else{
                 $mask.addClass('show');
             }
-        })
+        });
 
         $navbarItem.each(function () {
             let pathname = window.location.pathname;
             if (pathname.indexOf($(this).data('url')) != -1) {
                 $(this).addClass('active').siblings().removeClass('active');
             }
-        })
+        });
 
         $navDropDownItem.each(function () {
             let pathname = window.location.pathname;
@@ -79,11 +79,17 @@
                 $(this).addClass('active');
                 $(this) .parent().parent().addClass('active');
             }
-        })
+        });
 
         $mask.on('click', function () {
             $navbarList.hide();
             $(this).removeClass('show');
-        })
+        });
+
+        $(window).resize(function() {
+            if($(document).width() > 780){
+                $navbarList.show();
+            }
+        });
     })
 </script>
