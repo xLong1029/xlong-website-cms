@@ -167,11 +167,11 @@ class HomeService extends Service {
         let page, sql;
         if(!pageNo) pageNo = 1;
 
-        sql = `SELECT id, title, showIndex, viewCount, isDisable, imgUrl, summary, date(releaseTime) AS releaseTime, date(createTime) AS createTime FROM T_Article WHERE categoryId = 1 AND isDisable = 0 ORDER BY createTime DESC`;
+        sql = `SELECT id, title, showIndex, viewCount, isDisable, imgUrl, summary, date(releaseTime) AS releaseTime, createTime FROM T_Article WHERE categoryId = 1 AND isDisable = 0 ORDER BY createTime DESC`;
         page = await this.ctx.service.sqliteDB.GetPage(sql, pageNo, pageSize);
         data.page = await this.setPage(page.page);
 
-        sql = `SELECT id, title, showIndex, viewCount, isDisable, imgUrl, summary, date(releaseTime) AS releaseTime, date(createTime) AS createTime FROM T_Article WHERE categoryId = 1 AND isDisable = 0 ORDER BY createTime DESC LIMIT ${pageSize} OFFSET ${(pageNo - 1)*pageSize}`;
+        sql = `SELECT id, title, showIndex, viewCount, isDisable, imgUrl, summary, date(releaseTime) AS releaseTime, createTime FROM T_Article WHERE categoryId = 1 AND isDisable = 0 ORDER BY createTime DESC LIMIT ${pageSize} OFFSET ${(pageNo - 1)*pageSize}`;
         const news = await this.ctx.service.sqliteDB.SQLiteQuery(sql);
         data.list = news.data;
 
@@ -184,7 +184,7 @@ class HomeService extends Service {
         const banner = await this.ctx.service.client.getBannerList({ type:2, sectionType: 4, isDisable: 0 });
         data.banner = banner.data[0];
         
-        const sql = `SELECT title, viewCount, metaKeywords, metaDescription, author, content, date(releaseTime) AS releaseTime, date(createTime) AS createTime FROM T_Article WHERE id = ${id} `;
+        const sql = `SELECT title, viewCount, metaKeywords, metaDescription, author, content, date(releaseTime) AS releaseTime, createTime FROM T_Article WHERE id = ${id} `;
         const news = await this.ctx.service.sqliteDB.SQLiteQuery(sql);
         data.article = news.data[0];
 
