@@ -132,7 +132,7 @@
 								this.$router.push({ name: 'Main' });
 								this.$Message.success('登录成功!');
 							}
-							else this.$Message.error('登录失败!用户名或密码不正确！');
+							else this.$Message.warning(res.msg);
 						})
 						.catch(err => console.log(err));
                     }

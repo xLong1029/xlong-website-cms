@@ -4,9 +4,16 @@ class UserService extends Service {
     // 登录
     async login(params) {
         if(params && Object.keys(params).length){
-            const columns = ['id', 'type', 'username', 'mobile', 'email', 'realname', 'face'];
+            const columns = ['id', 'type', 'username', 'mobile', 'email', 'realname', 'face', 'isDisable'];
             return this.ctx.service.sqliteDB.GetData('T_Admin', params, columns).then(res => {
-                if(res.data.length) return { code: 200, data: res.data[0] };
+                if(res.data.length){                    
+                    let row = res.data[0];
+                    if(row.isDisable) return { code: 404, data: [], msg: '该账户已被禁用！请联系管理员' };
+                    else{
+                        row = this.ctx.helper.objOmit(row, ['isDisable']);
+                        return { code: 200, data: row };
+                    }
+                }
                 else return { code: 404, data: [], msg: '用户名或密码不正确' };
             })
             .catch(err => err);
