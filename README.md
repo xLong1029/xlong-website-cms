@@ -225,7 +225,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 2. 安装前台依赖
 > npm install
 3. 运行前台项目
-> npm run dev
+> npm start
 4. 访问地址：http://localhost:6060/index
 
 #### 后台项目
