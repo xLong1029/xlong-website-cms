@@ -23,9 +23,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.breadcrumb {
-  padding: 15px;
-  background: #f5f5f5;
-  z-index: 10;
-}
+  .breadcrumb {
+    padding: 15px;
+    background: #f5f5f5;
+    z-index: 10;
+  }
 </style>

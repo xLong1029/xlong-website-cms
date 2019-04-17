@@ -268,8 +268,6 @@
 </script>
 
 <style lang="less">
-    @import "../../assets/less/color";
-
     .m-operation {
         button, a {
             min-width: 80px;
