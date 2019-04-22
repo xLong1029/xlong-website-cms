@@ -51,7 +51,6 @@ export default {
                 })
                 return p;
             });
-            //console.log(this.cityList);
         }
 	}
 }

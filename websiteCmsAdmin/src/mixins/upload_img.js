@@ -29,7 +29,6 @@ export default {
             getImageUrl: ''
         }
     },
-    created(){},
 	methods: {
 		// 查看图片
         viewImage(){

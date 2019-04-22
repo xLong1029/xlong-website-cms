@@ -19,6 +19,7 @@
 <script type="text/ecmascript-6">
 import "tinymce/tinymce";
 import "../../assets/js/tinymce-langs/zh_CN";
+import '../../assets/js/tinymce-plugins/placeholder/plugin.js'
 import "tinymce/themes/modern/theme";
 //import 'tinymce/skins/lightgray/skin.min.css'
 //import 'tinymce/skins/lightgray/content.min.css'
@@ -50,7 +51,7 @@ export default {
 			imgUrlId: ""
 		};
 	},
-	props: ["value", "width", "height", "menubar", "toolbar"],
+	props: ["value", "width", "height", "menubar", "toolbar", "placeholder"],
 	watch: {
 		value(val) {
 			// 当传入值变化时更新富文本内容
@@ -69,8 +70,12 @@ export default {
 			plugins: [
 				"advlist autolink lists link image charmap print preview anchor",
 				"searchreplace visualblocks code fullscreen",
-				"insertdatetime table contextmenu paste code textcolor colorpicker"
+				"insertdatetime table contextmenu paste code textcolor colorpicker",
+				"placeholder"
 			],
+			// 占位符设置
+			placeholder: this.placeholder || '',
+			placeholder_attrs: { style: {position: 'absolute', top:'5px', left:0, color: '#bbbec8', padding: '1%', width:'98%', overflow: 'hidden', 'white-space': 'pre-wrap'} },
 			// 工具栏设置
 			toolbar: this.toolbar || "insertfile undo redo | styleselect | fontsizeselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image link | code | preview fullscreen ",
 			// 上传设置

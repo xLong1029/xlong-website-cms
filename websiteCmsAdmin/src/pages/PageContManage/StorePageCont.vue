@@ -25,7 +25,7 @@
                 </Form-item>
                 <Form-item label="页面内容：">
                     <!-- 组件-富文本编辑器 -->
-                    <tinymce v-model="infoForm.content" height="500"></tinymce>
+                    <tinymce v-model="infoForm.content" placeholder="请输入页面内容" height="500"></tinymce>
                 </Form-item>
                 <!-- 操作按钮 -->
                 <div class="m-operation">
@@ -38,9 +38,9 @@
         <!-- 添加关键词 -->
         <Modal v-model="kwModelShow" :width="600" title="添加关键词" @on-cancel="kwModelVisible(false)">
             <div>
-                <Form ref="modelForm" :model="modelForm" :rules="validate" :label-width="80">
+                <Form ref="kwModelForm" :model="kwModelForm" :rules="validate" :label-width="80">
                     <Form-item label="关键词：" prop="keyword">
-                        <Input v-model="modelForm.keyword" type="textarea" placeholder="请输入关键词"/>
+                        <Input v-model="kwModelForm.keyword" type="textarea" placeholder="请输入关键词"/>
                     </Form-item>
                     
                     <div class="hint">* 输入的关键词请以逗号" , "进行分隔</div>
@@ -48,7 +48,7 @@
             </div>
             <div slot="footer">
                 <Button type="text" @click="kwModelVisible(false)">取消</Button>
-                <Button type="primary" @click="addKeywords('modelForm')">确认</Button>
+                <Button type="primary" @click="addKeywords('kwModelForm')">确认</Button>
             </div>
         </Modal>
     </div>
@@ -61,12 +61,15 @@
     //导入富文本组件
 	import Tinymce from "components/Common/Tinymce.vue";
     // 通用JS
-    import { GetUrlQuery, StrToArr, ArrToStr, UniqueArr, ArrRemovEmpty } from 'common/important.js'
+    import { GetUrlQuery, StrToArr, ArrToStr } from 'common/important.js'
+    // 关键词设置
+    import KeywordModel from 'mixins/keyword_model.js'
     // Api方法
     import Api from 'api/pagecont_manage.js'
     
     export default {
         components: { Loading, ImageCropper, Tinymce },
+        mixins: [  KeywordModel ],
         data() {
             return {
                 // 加载页面
@@ -98,12 +101,6 @@
                             else callback();
                         },
                     trigger: 'change'}]
-                },
-                // 显示关键词对话框
-                kwModelShow: false,
-                // 弹窗表单
-                modelForm: {
-                    keyword: ''
                 }
             }
         },
@@ -165,43 +162,12 @@
                     else this.$Message.warning(res.msg);
                 })
                 .catch(err => console.log(err))
-            },
-            // 添加关键词对话框显示状态
-            kwModelVisible(val){
-                this.kwModelShow = val;
-                if(!val) this.modelForm.keyword = '';
-            },
-            // 移除关键词
-            removeKeyword(index){
-                this.infoForm.metaKeywords.splice(index, 1);
-            },
-            // 添加关键词
-            addKeywords(form){
-                this.$refs[form].validate((valid) => {
-                    if (valid) {
-                        // 去除所有空格
-                        let str = this.modelForm.keyword.replace(/\s*/g,"");
-
-                        // 将中文逗号全转成英文逗号
-                        str = str.replace(/，/g, ',');
-
-                        let arr = StrToArr(str, ',');
-                        arr = UniqueArr(arr);
-                        arr = ArrRemovEmpty(arr);
-        
-                        this.infoForm.metaKeywords.push(...arr);
-                        this.kwModelVisible(false);
-                    }
-                    else this.$Message.error('提交失败！填写有误');
-                })
             }
         }
     }
 </script>
 
 <style lang="less" scoped>
-    @import "../../assets/less/color";
-
     .m-operation {
         button, a {
             min-width: 80px;
