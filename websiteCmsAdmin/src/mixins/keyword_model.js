@@ -41,8 +41,12 @@ export default {
                     let arr = StrToArr(str, ',');
                     arr = UniqueArr(arr);
                     arr = ArrRemovEmpty(arr);
-    
-                    this.infoForm.metaKeywords.push(...arr);
+
+                    // 添加关键词并去重
+                    let kw = this.infoForm.metaKeywords;
+                    kw.push(...arr);
+                    this.infoForm.metaKeywords = UniqueArr(kw);
+
                     this.kwModelVisible(false);
                 }
                 else this.$Message.error('提交失败！填写有误');
