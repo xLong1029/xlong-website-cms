@@ -1,3 +1,5 @@
+'use strict';
+
 const Service = require('egg').Service;
 var moment = require('moment');
 

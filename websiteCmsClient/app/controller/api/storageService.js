@@ -11,17 +11,6 @@ const sendToWormhole = require('stream-wormhole');
 const crypto = require('crypto');
 
 class StorageServiceController extends Controller {
-    // session中token是否存在
-	async tokenExist() {
-		const sessionToken = this.ctx.session.token;
-        const token = this.ctx.request.header.token;
-		if(sessionToken && sessionToken == token) return true;
-		else{
-			// 清空用户信息
-			this.ctx.session.user = null;
-			return false;
-		}
-    }
 
     // 读取路径信息 
     async getStat(path){
@@ -147,30 +136,27 @@ class StorageServiceController extends Controller {
 
     // 上传图片
     async uploadImg() {
-        let res = { code: 404114, data:[], msg:'用户验证信息失效，请重新登录' };
-		// token存在
-		if(this.tokenExist()){
-            // 获取文件流
-            const stream = await this.ctx.getFileStream();
-            let dir = stream.fields.dir ? stream.fields.dir : 'img/';
+        let res = {};
+        // 获取文件流
+        const stream = await this.ctx.getFileStream();
+        let dir = stream.fields.dir ? stream.fields.dir : 'img/';
 
-            await this.upload(stream, dir).then(data => {
-                res = {
-                    code: 200,
-                    data: {
-                        url: `/api/WebsiteCms/StorageService/Img/Show?img=${dir.replace('img/', '')}${data.file}`,
-                        name: data.name
-                    },
-                    msg: ''
-                }
-            }).catch(() => {
-                res = {
-                    code: 404,
-                    data: [],
-                    msg: '图片上传失败'
-                }
-            });
-		}
+        await this.upload(stream, dir).then(data => {
+            res = {
+                code: 200,
+                data: {
+                    url: `/api/WebsiteCms/StorageService/Img/Show?img=${dir.replace('img/', '')}${data.file}`,
+                    name: data.name
+                },
+                msg: ''
+            }
+        }).catch(() => {
+            res = {
+                code: 404,
+                data: [],
+                msg: '图片上传失败'
+            }
+        });
 		this.ctx.body = res;
     }
     
