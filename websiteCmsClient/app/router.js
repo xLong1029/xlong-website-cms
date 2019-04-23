@@ -97,7 +97,7 @@ module.exports = app => {
   router.post('/api/WebsiteCms/ClientService/FriendlyLink/DelLink', checkToken, controller.api.clientService.delFLink);
   router.post('/api/WebsiteCms/ClientService/FriendlyLink/SetEnable', checkToken, controller.api.clientService.setEnableFLink);
   // 站点信息
-  router.get('/api/WebsiteCms/ClientService/Site/GetSiteInfo', checkToken, controller.api.clientService.getSiteInfo);
+  router.get('/api/WebsiteCms/ClientService/Site/GetSiteInfo', controller.api.clientService.getSiteInfo);
   router.post('/api/WebsiteCms/ClientService/Site/EditSiteInfo', checkToken, controller.api.clientService.editSiteInfo);
   // 底部信息
   router.get('/api/WebsiteCms/ClientService/Site/GetFooterInfo', checkToken, controller.api.clientService.getFooterInfo);
