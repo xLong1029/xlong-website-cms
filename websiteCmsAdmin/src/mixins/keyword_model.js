@@ -39,7 +39,6 @@ export default {
                     str = str.replace(/，/g, ',');
 
                     let arr = StrToArr(str, ',');
-                    // arr = UniqueArr(arr);
                     arr = ArrRemovEmpty(arr);
 
                     // 添加关键词并去重
