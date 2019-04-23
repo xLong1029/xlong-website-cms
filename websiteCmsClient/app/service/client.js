@@ -1,3 +1,5 @@
+'use strict';
+
 const Service = require('egg').Service;
 
 class ClientService extends Service {
