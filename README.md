@@ -191,6 +191,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  ├─mixins // 混合模块
 │  │    city_select.js // 城市联级选择
 │  │    email_complete.js // 文章管理
+│  │    keyword_model.js // 关键词弹窗
 │  │    page.js // 页码配置
 │  │    store_model.js // 存储弹窗
 │  │    table_operate.js // 表格操作
