@@ -29,8 +29,7 @@
     // 组件
     import Loading from 'components/Common/Loading'
     import ImageCropper from 'components/Image/ImageCropper'
-    //导入富文本组件
-	import Tinymce from "components/Common/Tinymce.vue";
+    import Tinymce from 'components/Common/Tinymce'
     // Api方法
     import Api from 'api/company_info.js'
 
