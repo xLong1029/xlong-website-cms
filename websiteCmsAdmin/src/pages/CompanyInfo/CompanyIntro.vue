@@ -13,7 +13,7 @@
                 </Form-item>
                 <Form-item label="公司介绍：" prop="companyContent">
                     <!-- 组件-富文本编辑器 -->
-                    <tinymce v-model="infoForm.companyContent" height="500"></tinymce>
+                    <Tinymce v-model="infoForm.companyContent" height="500" />
                 </Form-item>
                 <!-- 操作按钮 -->
                 <div class="m-operation">

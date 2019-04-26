@@ -31,7 +31,7 @@
                 </Form-item>
                 <Form-item label="案例内容：" prop="content">
                     <!-- 组件-富文本编辑器 -->
-                    <tinymce v-model="infoForm.content" placeholder="请输入案例内容" height="500"></tinymce>
+                    <Tinymce v-model="infoForm.content" placeholder="请输入案例内容" height="500" />
                 </Form-item>
                 <!-- 操作按钮 -->
                 <div class="m-operation">
