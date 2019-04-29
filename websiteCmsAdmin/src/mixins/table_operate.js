@@ -31,7 +31,6 @@ export default {
         // 新增数据
         addData(){
             this.apiAdd().then(res => {
-                this.pageLoading = false;
                 if(res.code == 200){
                     this.$Message.success('新增成功');
                     // 更新列表
@@ -42,12 +41,11 @@ export default {
                     this.storeModalVisible(false);
                 }
                 else this.$Message.warning(res.msg);
-            }).catch(err => this.$Message.error('新增失败'))
+            }).catch(() => this.$Message.error('新增失败'))
         },
         // 编辑数据
         editData(){
             this.apiEdit().then(res => {
-                this.pageLoading = false;
                 if(res.code == 200){
                     this.$Message.success('编辑成功');
                     // 更新列表
@@ -58,7 +56,7 @@ export default {
                     this.storeModalVisible(false);
                 }
                 else this.$Message.warning(res.msg);
-            }).catch(err => this.$Message.error('编辑失败'))
+            }).catch(() => this.$Message.error('编辑失败'))
         },
 		// 删除数据
         deleteData(){
@@ -71,10 +69,8 @@ export default {
                     return h('p', {}, '是否确认删除？');
                 },
                 // 确定
-                onOk: () => {
-                    this.pageLoading = true;                    
+                onOk: () => {                   
                     this.apiDelete().then(res => {
-                        this.pageLoading = false;
                         if(res.code == 200){
                             this.$Message.success('删除成功');
                             // 是否有页码配置
@@ -91,20 +87,17 @@ export default {
                             this.clearSelect();
                         }
                         else this.$Message.warning(res.msg);
-                    }).catch(err => this.$Message.error('删除失败'));
+                    }).catch(() => this.$Message.error('删除失败'));
                 }
             });
         },
         // 启用和禁用
         enableOrDisable(type){
-            this.pageLoading = true;
-
             // 如果需要操作的状态为启用
             if(type === 1){
                 // 启用用户
                 this.apiEnable()
                 .then(res => {
-                    this.pageLoading = false;
                     if(res.code == 200){
                         this.$Message.success('操作成功');
                         // 更新列表
@@ -128,7 +121,7 @@ export default {
                         this.clearSelect();
                     }
                     else this.$Message.warning(res.msg);
-                }).catch(err => this.$Message.error('操作失败'))
+                }).catch(() => this.$Message.error('操作失败'))
             }
         },
 	}
