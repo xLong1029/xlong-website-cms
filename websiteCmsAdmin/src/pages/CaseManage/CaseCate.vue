@@ -194,19 +194,6 @@
                     categoryName: row.categoryName
                 };
             },
-            // 存储数据
-            storeData(form){
-                this.$refs[form].validate((valid) => {
-                    if (valid) {
-                        // 页面加载
-                        this.pageLoading = true;
-                
-                        if(this.storeType == 'add') this.addData(); 
-                        else this.editData();
-                    }
-                    else this.$Message.error('提交失败！填写有误');
-                })
-            },
             // 跳转案例列表页
             gotoCaseList(params){
                 this.$router.push({ name : 'CaseList', query : { cid : params.row.id } });
