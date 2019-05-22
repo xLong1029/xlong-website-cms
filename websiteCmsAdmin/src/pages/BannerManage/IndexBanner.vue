@@ -18,7 +18,7 @@
                 </div>
             </th>
             <!-- 表格内容 -->
-            <tr v-for="(item, index) in listData" :key="index">
+            <tr v-for="(item, index) in listData" :key="index" :class="item.isDisable == 1 ? 'tr-disable' : ''">
                 <td v-for="(th, i) in title" :key="i" :align="th.align">
                     <!-- 勾选框 -->
                     <Checkbox v-if="th.type == 'CheckBox'" v-model="item.isCheck" @on-change="selectRow(index, item.isCheck)"></Checkbox>
