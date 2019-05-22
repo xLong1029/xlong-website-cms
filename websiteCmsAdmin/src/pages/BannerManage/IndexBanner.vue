@@ -112,16 +112,11 @@
     import StoreModel from 'mixins/store_model.js'
     // 页码设置
     import Page from 'mixins/page.js'
-    // Vuex
-    import { mapGetters } from 'vuex'
-    // axios
-    import axios from 'axios'
       
     export default {
         components: { SingleImage },
         mixins: [ TableQuery, TableOperate, Page, StoreModel ],
         computed: {
-            ...mapGetters([ 'getImageUrl' ]),
             // 获取所有列表
             apiGetList(){
                 return () => Api.GetBannerList({
