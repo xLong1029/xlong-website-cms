@@ -7,7 +7,7 @@
                 <Col span="12">
                     <Form-item label="网站LOGO：" prop="logo">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="GLOBAL.ShowImg(infoForm.logo)" upload-dir="img/logo/" :preview="true" size-hint="100*100px" :fileSize="180" @get-img-url="setPic"></SingleImage>
+                        <SingleImage :src="infoForm.logo" upload-dir="img/logo/" :preview="true" size-hint="220*72px" :fileSize="180" @get-img-url="setPic"></SingleImage>
                     </Form-item>
                     <Form-item label="公司名称：" prop="companyName">
                         <Input v-model="infoForm.companyName" placeholder="请输入公司名称"/>

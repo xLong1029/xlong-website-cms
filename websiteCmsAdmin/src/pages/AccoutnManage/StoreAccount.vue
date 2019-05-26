@@ -34,7 +34,7 @@
                         </Form-item>
                         <Form-item label="头像：" style="margin-bottom:16px;">
                             <!-- 组件-图片上传-单图片显示 -->
-                            <SingleImage :src="GLOBAL.ShowImg(infoForm.face)" upload-dir="img/avatar/" :preview="true" size-hint="100*100px" @get-img-url="setFace"></SingleImage>
+                            <SingleImage :src="infoForm.face" upload-dir="img/avatar/" :preview="true" size-hint="100*100px" @get-img-url="setFace"></SingleImage>
                         </Form-item>
                          <Form-item label="邮箱：" prop="email">
                             <AutoComplete v-model="infoForm.email" :data="emailList" @on-search="selectEmail" @on-select="setEmail" placeholder="请输入邮箱地址"></AutoComplete>

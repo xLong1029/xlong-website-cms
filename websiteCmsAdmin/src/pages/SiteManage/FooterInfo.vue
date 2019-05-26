@@ -7,7 +7,7 @@
                 <Col span="12">
                     <Form-item label="二维码图片：" prop="qrcodeImg">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="GLOBAL.ShowImg(infoForm.qrcodeImg)" upload-dir="img/qrcode/" :preview="true" size-hint="100*100px" :fileSize="180" @get-img-url="setPic"></SingleImage>
+                        <SingleImage :src="infoForm.qrcodeImg" upload-dir="img/qrcode/" :preview="true" size-hint="100*100px" :fileSize="180" @get-img-url="setPic"></SingleImage>
                     </Form-item>
                     <Form-item label="热线电话 / 邮箱：" prop="contactWay">
                         <Input v-model="infoForm.contactWay" placeholder="请输入联系方式"/>

@@ -14,7 +14,7 @@
                 </Form-item>
                 <Form-item label="案例封面：" prop="poster">
                     <!-- 组件-图片上传-图片裁剪 -->
-                    <ImageCropper :src="GLOBAL.ShowImg(infoForm.imgUrl)" upload-dir="img/case/" :preview="true" :fixed="true" :fixedNumber="[90,59]" :autoCropWidth="450" :fileSize="300" size-hint="450*295px" @get-img-url="setPoster"></ImageCropper>
+                    <ImageCropper :src="infoForm.imgUrl" upload-dir="img/case/" :preview="true" :fixed="true" :fixedNumber="[90,59]" :autoCropWidth="450" :fileSize="300" size-hint="450*295px" @get-img-url="setPoster"></ImageCropper>
                 </Form-item>
                 <Form-item label="项目完成时间：" prop="finishedTime">
                     <DatePicker v-model="infoForm.finishedTime" type="date"  placeholder="请选择项目完成时间"></DatePicker>

@@ -13,7 +13,7 @@
                     </Form-item>
                     <Form-item label="头像：">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="GLOBAL.ShowImg(infoForm.face)" upload-dir="img/avatar/" :preview="true" @get-img-url="setFace"></SingleImage>
+                        <SingleImage :src="infoForm.face" upload-dir="img/avatar/" :preview="true" @get-img-url="setFace"></SingleImage>
                     </Form-item>
                     <Form-item label="电子邮箱：" prop="email">
                         <Input v-model="infoForm.email" placeholder="请输入您的邮箱地址"/>
