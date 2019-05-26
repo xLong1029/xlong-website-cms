@@ -1,7 +1,7 @@
 <template>
   	<div id="login" class="m-login">
        <Form ref="loginForm" :model="loginForm" :rules="validate" class="login-form">
-       		<h3 class="form-title"><a href="/"><img :src="siteInfo.logo"/></a></h3>
+       		<h3 class="form-title"><a href="/"><img :src="GLOBAL.ShowImg(siteInfo.logo)"/></a></h3>
 	        <Form-item prop="username">
 	            <Input v-model="loginForm.username" placeholder="请输入手机号码" @keyup.enter.native="submit('loginForm')">
 	            	<Icon type="ios-person-outline" slot="prepend"></Icon>

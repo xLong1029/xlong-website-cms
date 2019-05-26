@@ -111,5 +111,5 @@ module.exports = app => {
   router.post('/api/WebsiteCms/ClientService/PageCont/EditPageCont', checkToken, controller.api.clientService.editPageCont);
   // 图片存储
   router.post('/api/WebsiteCms/StorageService/Img/Upload', checkToken, controller.api.storageService.uploadImg);
-  router.get('/api/WebsiteCms/StorageService/Img/Show', controller.api.storageService.getImgFile);
+  // router.get('/api/WebsiteCms/StorageService/Img/Show', controller.api.storageService.getImgFile);
 };

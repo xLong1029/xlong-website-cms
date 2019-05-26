@@ -6,7 +6,7 @@
             <Form ref="infoForm" :model="infoForm" :rules="validate" :label-width="180">
                 <Form-item label="公司图片（用于首页）：" prop="companyImg">
                     <!-- 组件-图片上传-图片裁剪 -->
-                    <ImageCropper :src="infoForm.companyImg" upload-dir="img/company/" :preview="true" :fileSize="150" size-hint="570*250px" @get-img-url="setPoster"></ImageCropper>
+                    <ImageCropper :src="GLOBAL.ShowImg(infoForm.companyImg)" upload-dir="img/company/" :preview="true" :fileSize="150" size-hint="570*250px" @get-img-url="setPoster"></ImageCropper>
                 </Form-item>
                 <Form-item label="公司简介（用于首页）：" prop="companyIntro">
                     <Input v-model="infoForm.companyIntro" type="textarea" :rows="3" placeholder="请输入公司简介"/>

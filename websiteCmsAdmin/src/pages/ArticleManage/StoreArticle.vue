@@ -9,7 +9,7 @@
                 </Form-item>
                 <Form-item label="文章封面：" prop="imgUrl">
                     <!-- 组件-图片上传-图片裁剪 -->
-                    <ImageCropper :src="infoForm.imgUrl" upload-dir="img/article/" :preview="true" :fixed="true" :fixedNumber="[90,59]" :autoCropWidth="450" :fileSize="300" size-hint="450*295px" @get-img-url="setPoster"></ImageCropper>
+                    <ImageCropper :src="GLOBAL.ShowImg(infoForm.imgUrl)" upload-dir="img/article/" :preview="true" :fixed="true" :fixedNumber="[90,59]" :autoCropWidth="450" :fileSize="300" size-hint="450*295px" @get-img-url="setPoster"></ImageCropper>
                 </Form-item>
                 <Form-item label="作者：">
                     <Input v-model="infoForm.author" placeholder="请输入作者名称"/>

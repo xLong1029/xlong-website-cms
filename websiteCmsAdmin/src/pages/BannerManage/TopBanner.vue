@@ -33,7 +33,7 @@
                     <!-- 图片上传 -->
                     <div v-if="th.type == 'UploadImg'">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="item[th.key]" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
+                        <SingleImage :src="GLOBAL.ShowImg(item[th.key])" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
                     </div>
                     <!-- 操作按钮 -->
                     <div v-if="th.type == 'Button'">

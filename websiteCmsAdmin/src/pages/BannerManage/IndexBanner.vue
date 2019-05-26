@@ -35,7 +35,7 @@
                     <!-- 图片上传 -->
                     <div v-if="th.type == 'UploadImg'">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="item[th.key]" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
+                        <SingleImage :src="GLOBAL.ShowImg(item[th.key])" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
                     </div>
                     <!-- 操作按钮 -->
                     <div v-if="th.type == 'Button'">
@@ -75,7 +75,7 @@
                     </Form-item>
                     <Form-item label="Banner：" prop="imgUrl">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="modelForm.imgUrl? modelForm.imgUrl : ''" upload-dir="img/banner/" size-hint="1905*680px" :file-size="350" @get-img-url="setBanner"></SingleImage>
+                        <SingleImage :src="modelForm.imgUrl? GLOBAL.ShowImg(modelForm.imgUrl) : ''" upload-dir="img/banner/" size-hint="1905*680px" :file-size="350" @get-img-url="setBanner"></SingleImage>
                     </Form-item>
                     <Form-item label="跳转链接：">
                         <Input v-model="modelForm.linkUrl" placeholder="请输入跳转链接"/>
@@ -296,6 +296,7 @@
             },
             // 设置新增Banner
             setBanner(url){
+                // console.log(url);
                 this.modelForm.imgUrl = url;
             },
             // 弹窗可见性
