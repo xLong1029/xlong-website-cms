@@ -5,6 +5,7 @@
 	<Upload
 		ref="upload"
 		action="/api/WebsiteCms/StorageService/Img/Upload"
+		:headers="headers"
 		:on-success="handleSuccess"
 		:on-error="handleError"
 		:on-format-error="handleFormatError"
@@ -17,6 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { GetCookie } from '@/common/important.js'
 import "tinymce/tinymce";
 import "../../assets/js/tinymce-langs/zh_CN";
 import '../../assets/js/tinymce-plugins/placeholder/plugin.js'
@@ -48,7 +50,10 @@ export default {
 		return {
 			id: "tinymce__" + Date.now(),
 			// 获取上图片节点
-			imgUrlId: ""
+			imgUrlId: "",
+			headers: {
+				token: GetCookie('hj_token')
+			}
 		};
 	},
 	props: ["value", "width", "height", "menubar", "toolbar", "placeholder"],
@@ -131,7 +136,6 @@ export default {
 		handleSuccess(res, file) {
 			if (res.code == 200) {
 				let inputImgUrl = document.getElementById(this.imgUrlId);
-				console.log(this.GLOBAL.BASE_URL);
 				inputImgUrl.value = this.GLOBAL.BASE_URL + res.data.url;
 				//触发change事件
 				if (document.createEventObject) {
@@ -152,7 +156,7 @@ export default {
 		},
 		//错误
 		handleError(error, file) {
-			this.$Message.error("网络错误");
+			this.$Notice.success({ title: '图片上传失败!' });
 			this.handleOver();
 		},
 		handleFormatError(file) {
