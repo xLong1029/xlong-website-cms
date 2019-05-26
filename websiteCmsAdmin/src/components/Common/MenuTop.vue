@@ -17,7 +17,7 @@
             <span>Hi，欢迎您，</span>
             <Submenu name="1" style="z-index:10">
                 <template slot="title">
-                    <img class="account-face" :src="user.face ? user.face : ''" @error="notFoundPic"/>
+                    <img class="account-face" :src="user.face ? GLOBAL.ShowImg(user.face) : ''" @error="notFoundPic"/>
                     <strong>{{ user.realname }}</strong>
                 </template>
                 <Menu-item name="personalProfile" class="dropdown-item"><router-link :to="{ name: 'Profile'}">个人资料</router-link></Menu-item>

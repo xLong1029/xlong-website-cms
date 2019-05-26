@@ -57,7 +57,6 @@
 <script>
     // 组件
     import Loading from 'components/Common/Loading'
-    import ImageCropper from 'components/Image/ImageCropper'
     import Tinymce from 'components/Common/Tinymce'
     // 通用JS
     import { GetUrlQuery, StrToArr, ArrToStr } from 'common/important.js'
@@ -67,7 +66,7 @@
     import Api from 'api/pagecont_manage.js'
     
     export default {
-        components: { Loading, ImageCropper, Tinymce },
+        components: { Loading, Tinymce },
         mixins: [  KeywordModel ],
         data() {
             return {

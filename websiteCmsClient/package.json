@@ -13,7 +13,7 @@
     "egg-view-nunjucks": "^2.2.0",
     "moment": "^2.24.0",
     "sequelize": "^4.42.0",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.0.8"
   },
   "devDependencies": {
     "autod": "^3.0.1",

@@ -15,11 +15,15 @@ import iView from 'iview'
 import './theme/index.less'
 Vue.use(iView)
 
-// 富文本编辑器
-// import VueQuillEditor from 'vue-quill-editor'
-// Vue.use(VueQuillEditor)
-
 Vue.config.productionTip = false
+
+// 配置全局变量，用于配置C端地址，显示图片
+Vue.prototype.GLOBAL = {
+	BASE_URL: 'http://127.0.0.1:6060',
+	ShowImg: function(url){
+		return this.BASE_URL +  url;
+	}
+}
 
 // 不重定向白名单
 const whiteList = [ 'Err404', 'Login']

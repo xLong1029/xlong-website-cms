@@ -131,7 +131,8 @@ export default {
 		handleSuccess(res, file) {
 			if (res.code == 200) {
 				let inputImgUrl = document.getElementById(this.imgUrlId);
-				inputImgUrl.value = res.data.url;
+				console.log(this.GLOBAL.BASE_URL);
+				inputImgUrl.value = this.GLOBAL.BASE_URL + res.data.url;
 				//触发change事件
 				if (document.createEventObject) {
 					// IE浏览器支持fireEvent方法
