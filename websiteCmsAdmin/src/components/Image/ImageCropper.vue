@@ -2,7 +2,7 @@
     <div id="imgCropper" class="m-Upload">
         <!-- 图片显示 -->
         <div v-if="getImageUrl != ''" class="upload-show">
-            <div class="upload-img-wrap"><img class="upload-image" :src="getImageUrl" alt="图片加载失败" @error="notFoundPic"/></div>
+            <div class="upload-img-wrap"><img class="upload-image" :src="GLOBAL.ShowImg(getImageUrl)" alt="图片加载失败" @error="notFoundPic"/></div>
             <!-- 遮罩 -->
             <div class="upload-mask">
                 <Icon v-if="preview" type="eye" @click.native="viewImage" style="margin-right:15px;"></Icon>

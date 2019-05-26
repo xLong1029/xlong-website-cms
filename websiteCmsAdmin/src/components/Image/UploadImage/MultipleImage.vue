@@ -2,7 +2,7 @@
     <div id='multipleImage' class="m-Upload">
         <!-- 图片显示 -->
         <div :ref="'upload-img-'+index" v-for="(item, index) in getImageUrlArr" :key="index" class="upload-show">
-            <div class="upload-img-wrap"><img class="upload-image" :src="item" alt="图片加载失败" @error="notFoundPic"/></div>
+            <div class="upload-img-wrap"><img class="upload-image" :src="GLOBAL.ShowImg(item)" alt="图片加载失败" @error="notFoundPic"/></div>
             <!-- 遮罩 -->
             <div class="upload-mask">
                 <Icon v-if="preview" type="eye" style="margin-right:15px;" @click.native="viewImage(item)"></Icon>
