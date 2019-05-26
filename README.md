@@ -23,6 +23,9 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 [egg-cors](https://github.com/eggjs/egg-cors)  
 [node-sqlite3](https://github.com/mapbox/node-sqlite3)  
 
+#### 3. 浏览器兼容性
+由于是响应式页面，PC和移动设备都能统一访问，并且用到了部分版本比较高的插件，所以主要兼容浏览器：IE10+、IE Edge、Safai、Firefox、Chrome等。
+
 ## 部分项目运行截图
 * 前台页面
 
