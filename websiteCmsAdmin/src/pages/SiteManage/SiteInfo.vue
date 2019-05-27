@@ -7,7 +7,7 @@
                 <Col span="12">
                     <Form-item label="网站LOGO：" prop="logo">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="infoForm.logo" upload-dir="img/logo/" :preview="true" size-hint="100*100px" :fileSize="180" @get-img-url="setPic"></SingleImage>
+                        <SingleImage :src="infoForm.logo" upload-dir="img/logo/" :preview="true" size-hint="220*72px" :fileSize="180" @get-img-url="setPic"></SingleImage>
                     </Form-item>
                     <Form-item label="公司名称：" prop="companyName">
                         <Input v-model="infoForm.companyName" placeholder="请输入公司名称"/>
@@ -38,8 +38,7 @@
                 <Form ref="kwModelForm" :model="kwModelForm" :rules="validate" :label-width="80">
                     <Form-item label="关键词：" prop="keyword">
                         <Input v-model="kwModelForm.keyword" type="textarea" placeholder="请输入关键词"/>
-                    </Form-item>
-                    
+                    </Form-item>                    
                     <div class="hint">* 输入的关键词请以逗号" , "进行分隔</div>
                 </Form>
             </div>

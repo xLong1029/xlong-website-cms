@@ -69,7 +69,7 @@ class StorageServiceController extends Controller {
 	async upload(stream, dir) {
         // 获取存储路径
         let currentPath;
-        console.log(dir);
+
         if(dir){
             await this.dirExists(`app/public/upload/${dir}`);
             currentPath = path.join(this.config.baseDir, `app/public/upload/${dir}`);
@@ -145,7 +145,7 @@ class StorageServiceController extends Controller {
             res = {
                 code: 200,
                 data: {
-                    url: `/api/WebsiteCms/StorageService/Img/Show?img=${dir.replace('img/', '')}${data.file}`,
+                    url: `/public/upload/${dir}${data.file}`,
                     name: data.name
                 },
                 msg: ''
@@ -161,19 +161,21 @@ class StorageServiceController extends Controller {
     }
     
     // 获取图片文件并返回给客户端
-	async getImgFile() {
-        const fileName = this.ctx.query.img;
-        // 找到图片存放的位置
-        const target = path.join(this.config.baseDir, 'app/public/upload/img/', fileName);
-        let res = { code: 404, data: [], msg: '文件不存在' };
-        let isExists = await this.fileExists(target).then(res => { return res }).catch(err => { return err });
-        // 文件存在则读取文件流
-        if(isExists){
-            //读取文件流
-            res = fs.createReadStream(target);
-        }
-        this.ctx.body = res;
-    }
+    // 旧版读取文件流显示图片，IE中请求获取图片流失效，已改成相对路径方法
+	// async getImgFile() {
+    //     const fileName = this.ctx.query.img;
+    //     // 找到图片存放的位置
+    //     const target = path.join(this.config.baseDir, 'app/public/upload/img/', fileName);
+    //     let res = { code: 404, data: [], msg: '文件不存在' };
+    //     let isExists = await this.fileExists(target).then(res => { return res }).catch(err => { return err });
+    //     // 文件存在则读取文件流
+    //     if(isExists){
+    //         //读取文件流
+    //         res = fs.createReadStream(target);
+    //     }
+    //     // 返回绝对路径
+    //     this.ctx.body = res;
+    // }
 }
 
 module.exports = StorageServiceController;

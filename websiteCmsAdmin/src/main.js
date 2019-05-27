@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+
 // 获取cookie
 import { GetCookie } from './common/important'
 
@@ -13,13 +14,18 @@ import iView from 'iview'
 // 这里有个坑，会出现各种css-loader,style-loader和less-loader的报错
 // 解决方法是安装最新的vue-cli和loader以来，webpack就不需要配置了，因为vue-cli会帮你配置安装的loader
 import './theme/index.less'
+
 Vue.use(iView)
 
-// 富文本编辑器
-// import VueQuillEditor from 'vue-quill-editor'
-// Vue.use(VueQuillEditor)
-
 Vue.config.productionTip = false
+
+// 配置全局变量，用于配置C端地址，显示图片
+Vue.prototype.GLOBAL = {
+	BASE_URL: 'http://127.0.0.1:6060',
+	ShowImg: function(url){
+		return this.BASE_URL +  url;
+	}
+}
 
 // 不重定向白名单
 const whiteList = [ 'Err404', 'Login']

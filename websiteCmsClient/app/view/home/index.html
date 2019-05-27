@@ -15,7 +15,7 @@
                 <div class="swiper-wrapper">
                     {% for item in banner %}
                         <div class="swiper-slide">
-                            <a href="{{ item.linkUrl }}">                                 
+                            <a href="{{ item.linkUrl }}">
                                 <img src="{{ item.imgUrl }}" onerror="defaultImg()"/>
                             </a>
                         </div>
@@ -107,8 +107,8 @@
 {% endblock %}
 {% block script %}
 
-    <script src="/public/common/swiper/js/swiper.min.js"></script>
-    <script>
+    <script src="/public/common/swiper/js/swiper.min.js"  type="text/babel"></script>
+    <script type="text/babel">
         var swiper = new Swiper('.swiper-container', {
             autoHeight: true,
             loop: true,

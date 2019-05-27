@@ -2,7 +2,7 @@
     <div id="singleImage" class="m-Upload">
         <!-- 图片显示 -->
         <div v-if="getImageUrl != ''" class="upload-show">
-            <div class="upload-img-wrap"><img class="upload-image" :src="getImageUrl" alt="图片加载失败" @error="notFoundPic"/></div>
+            <div class="upload-img-wrap"><img class="upload-image" :src="GLOBAL.ShowImg(getImageUrl)" alt="图片加载失败" @error="notFoundPic"/></div>
             <!-- 遮罩 -->
             <div class="upload-mask">
                 <Icon v-if="preview" type="eye" @click.native="viewImage" style="margin-right:15px;"></Icon>
@@ -77,6 +77,11 @@
                 type: String,
                 default: 'img/'
             },
+            // 组件索引值
+            index: {
+                type: Number,
+                default: -1
+            }
         },
         data () {
             return {
@@ -123,8 +128,9 @@
                 Api.UploadImg(params).then(res => {
                     if(res.code == 200){
                         this.getImageUrl = res.data.url;
+                        console.log(this.index);
                         // 传给父组件url
-                        this.$emit('get-img-url', this.getImageUrl);
+                        this.index < 0 ? this.$emit('get-img-url', this.getImageUrl) : this.$emit('get-img-url', this.getImageUrl, this.index);
                         
                         // 停止加载和隐藏进度
                         this.progressHide();

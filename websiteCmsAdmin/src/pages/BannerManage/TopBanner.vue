@@ -33,7 +33,7 @@
                     <!-- 图片上传 -->
                     <div v-if="th.type == 'UploadImg'">
                         <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="item[th.key]" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
+                        <SingleImage :src="item[th.key]" :index="index" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
                     </div>
                     <!-- 操作按钮 -->
                     <div v-if="th.type == 'Button'">
@@ -67,8 +67,6 @@
     import TableOperate from 'mixins/table_operate.js'
     // Vuex
     import { mapGetters } from 'vuex'
-    // axios
-    import axios from 'axios'
       
     export default {
         components: { SingleImage },
@@ -247,7 +245,8 @@
                 }
             },
             // 设置新增Banner
-            setBanner(url){
+            setBanner(url, index){
+                this.listData[index].imgUrl = url;
                 this.paramsForm.imgUrl = url;
             },
             // 清空选项

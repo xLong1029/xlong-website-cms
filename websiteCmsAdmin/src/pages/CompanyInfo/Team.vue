@@ -10,7 +10,7 @@
                     <Col span="12">
                         <Form-item label="团队图片：" prop="teamImg">
                             <!-- 组件-图片上传-单图片显示 -->
-                            <SingleImage :src="infoForm.teamImg" upload-dir="img/company/" :preview="true" size-hint="100*100px" :fileSize="180" @get-img-url="setPic"></SingleImage>
+                            <SingleImage :src="infoForm.teamImg" upload-dir="img/company/" :preview="true" size-hint="570*254px" :fileSize="180" @get-img-url="setPic"></SingleImage>
                         </Form-item>
                         <Form-item label="团队介绍：" prop="teamIntro">
                             <Input v-model="infoForm.teamIntro" type="textarea" :rows="4" placeholder="请输入团队介绍"/>
