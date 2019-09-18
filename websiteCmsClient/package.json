@@ -12,7 +12,6 @@
     "egg-static": "^2.1.1",
     "egg-view-nunjucks": "^2.2.0",
     "moment": "^2.24.0",
-    "sequelize": "^4.42.0",
     "sqlite3": "^4.0.8"
   },
   "devDependencies": {
