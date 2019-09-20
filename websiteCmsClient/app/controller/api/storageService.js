@@ -60,7 +60,7 @@ class StorageServiceController extends Controller {
             // 判断文件是否存在
             fs.exists(path, (exists) => {
                 if(exists) resolve(true);
-                else reject(false);
+                else resolve(false);
             });
         });
     }
