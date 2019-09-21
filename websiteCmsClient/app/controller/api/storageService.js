@@ -12,7 +12,12 @@ const crypto = require('crypto');
 
 class StorageServiceController extends Controller {
 
-    // 读取路径信息 
+    /**
+     * 读取路径信息
+     * 判断路径是否存在，不存在返回false
+     * 
+     * @param {*} path 路径地址
+     */
     async getStat(path){
         return new Promise((resolve, reject) => {
             fs.stat(path, (err, stats) => {
@@ -22,7 +27,11 @@ class StorageServiceController extends Controller {
         })
     }
 
-    // 创建路径
+    /**
+     * 根据dir创建路径
+     * 
+     * @param {*} dir 路径地址
+     */
     async mkdir(dir){
         return new Promise((resolve, reject) => {
             fs.mkdir(dir, err => {
@@ -32,15 +41,19 @@ class StorageServiceController extends Controller {
         })
     }
 
-    // 路径是否存在，不存在则创建
+    /**
+     * 根据路径地址，判断路径是否存在，不存在则创建
+     * 
+     * @param {*} dir 路径地址
+     */
     async dirExists(dir){
-        let isExists = await this.getStat(dir);
+        let isExist = await this.getStat(dir);
         // 如果该路径且不是文件，返回true
-        if(isExists && isExists.isDirectory()){
+        if(isExist && isExist.isDirectory()){
             return true;
         }
         // 如果该路径存在但是文件，返回false
-        else if(isExists){
+        else if(isExist){
             return false;
         }
         // 如果该路径不存在
@@ -54,7 +67,11 @@ class StorageServiceController extends Controller {
         return mkdirStatus;
     }
 
-    // 查找文件
+    /**
+     * 根据配置的dir返回文件存储路径
+     * 
+     * @param {*} dir 路径地址
+     */
     async fileExists(path) {
         return new Promise((resolve, reject) => {
             // 判断文件是否存在
@@ -65,7 +82,12 @@ class StorageServiceController extends Controller {
         });
     }
     
-	// 上传功能
+    /**
+     * 上传功能，写入文件
+     * 
+     * @param {*} stream 文件流
+     * @param {*} dir 路径地址
+     */
 	async upload(stream, dir) {
         // 获取存储路径
         let currentPath;
@@ -134,7 +156,9 @@ class StorageServiceController extends Controller {
         })
     }
 
-    // 上传图片
+    /**
+     * 上传图片，上传成功返回url和文件名
+     */
     async uploadImg() {
         let res = {};
         // 获取文件流
@@ -167,9 +191,9 @@ class StorageServiceController extends Controller {
     //     // 找到图片存放的位置
     //     const target = path.join(this.config.baseDir, 'app/public/upload/img/', fileName);
     //     let res = { code: 404, data: [], msg: '文件不存在' };
-    //     let isExists = await this.fileExists(target).then(res => { return res }).catch(err => { return err });
+    //     let isExist = await this.fileExists(target).then(res => { return res }).catch(err => { return err });
     //     // 文件存在则读取文件流
-    //     if(isExists){
+    //     if(isExist){
     //         //读取文件流
     //         res = fs.createReadStream(target);
     //     }

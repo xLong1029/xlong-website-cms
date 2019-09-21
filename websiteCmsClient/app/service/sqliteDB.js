@@ -1,6 +1,6 @@
 /*
  * 功能 : 封装SQLite的增删改查方法。
- * 作者 : 罗永梅（381612175@qq.com）
+ * 作者 : 罗永梅（381612175@param {*} qq.com）
  * 日期 : 2019-2-27
  * 版本 : version 1.0
  */
@@ -9,7 +9,7 @@ const Service = require('egg').Service;
 class SqliteDB_Service extends Service {
     /**
 	* [建立SQLite查询]
-    * @sql SQL查询语句
+    * @param {*} sql SQL查询语句
 	*/
     async SQLiteQuery(sql) {
         return new Promise((resolve, reject) => {
@@ -22,9 +22,9 @@ class SqliteDB_Service extends Service {
     }
     /**
 	* [获取分页]
-    * @sql SQL查询语句
-    * @pageNo 当前页码
-    * @pageSize 每页记录条数
+    * @param {*} sql SQL查询语句
+    * @param {*} pageNo 当前页码
+    * @param {*} pageSize 每页记录条数
 	*/
     async GetPage(sql, pageNo, pageSize) {
         return new Promise((resolve, reject) => {
@@ -46,16 +46,16 @@ class SqliteDB_Service extends Service {
     }
     /**
 	* [获取数据]
-	* @tableName 表名
-	* @params 传递的查询参数
-    * @columns 返回指定列组
-    * @orderBys 基于指定列组排序
-    * @orderMethod 排序方式[ASC | DESC]
-    * @pageNo 当前页码
-    * @pageSize 返回指定记录条数
-    * @sTime 筛选时间起点
-    * @eTime 筛选时间终点
-    * @vaguelyParams 模糊查询的参数
+	* @param {*} tableName 表名
+	* @param {*} params 传递的查询参数
+    * @param {*} columns 返回指定列组
+    * @param {*} orderBys 基于指定列组排序
+    * @param {*} orderMethod 排序方式[ASC | DESC]
+    * @param {*} pageNo 当前页码
+    * @param {*} pageSize 返回指定记录条数
+    * @param {*} sTime 筛选时间起点
+    * @param {*} eTime 筛选时间终点
+    * @param {*} vaguelyParams 模糊查询的参数
 	*/
     async GetData(tableName, params, columns, orderBys, orderMethod, pageNo, pageSize, sTime, eTime, vaguelyParams) {
         return new Promise((resolve, reject) => {
@@ -82,10 +82,10 @@ class SqliteDB_Service extends Service {
     }
     /**
 	* [更新数据]
-	* @tableName 表名
-	* @params 传递的查询参数对象
-    * @ids 指定记录的id值
-    * @condition 没有id情况下的其他条件
+	* @param {*} tableName 表名
+	* @param {*} params 传递的查询参数对象
+    * @param {*} ids 指定记录的id值
+    * @param {*} condition 没有id情况下的其他条件
 	*/
     async UpdateData(tableName, params, ids, condition) {
         return new Promise((resolve, reject) => {
@@ -95,8 +95,8 @@ class SqliteDB_Service extends Service {
     }
     /**
 	* [删除数据]
-	* @tableName 表名
-    * @ids 指定记录的id值
+	* @param {*} tableName 表名
+    * @param {*} ids 指定记录的id值
 	*/
     async DeleteData(tableName, ids) {
         return new Promise((resolve, reject) => {
@@ -106,8 +106,8 @@ class SqliteDB_Service extends Service {
     }
     /**
 	* [插入一行数据]
-	* @tableName 表名
-	* @params 传递的查询参数对象
+	* @param {*} tableName 表名
+	* @param {*} params 传递的查询参数对象
 	*/
     async InsertData(tableName, params) {
         return new Promise((resolve, reject) => {

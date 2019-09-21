@@ -97,18 +97,19 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │
 ├─.vscode // vscode配置，用于配置less
 │
+├─database
+│  websiteCms.db // SQLite数据库
+│  数据库设计.docx // 数据库设计文档
+│
 ├─app
 │  │  router.js // 路由配置
-|  |
-│  ├─database
-│  │     websiteCms.db // SQLite数据库
-│  │     数据库设计.docx // 数据库设计文档
-|  |
+│  │
+│  │
 │  ├─controller
 │  │  │  admin.js // 后台相关controller
 │  │  │  home.js // 前台相关controller
-|  |  |
-|  |  └─api // api服务，主要是为了给后台使用
+│  │  │
+│  │  └─api // api服务，主要是为了给后台使用
 │  │     accountService.js // 账户管理相关controller
 │  │     articleService.js // 文章管理相关controller
 │  │     clientService.js // 客户端管理相关controller
@@ -116,7 +117,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │     productService.js // 产品服务相关controller
 │  │     storageService.js // 存储服务controller
 │  │     userService.js // 用户信息管理相关controller    
-|  |
+│  │
 │  ├─extend
 │  │     helper.js // 用来提供一些实用的 utility 函数
 │  │
