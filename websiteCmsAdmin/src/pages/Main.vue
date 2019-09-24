@@ -30,8 +30,6 @@
 	import MenuTop from 'components/Common/MenuTop'
   	import Sidebar from 'components/Common/Sidebar'
     import Breadcrumb from 'components/Common/Breadcrumb'
-    // 通用方法
-    import { CopyArr } from 'common/important.js';
     // Vuex
     import { mapGetters } from 'vuex'
 
