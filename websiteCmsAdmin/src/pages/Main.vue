@@ -30,8 +30,6 @@
 	import MenuTop from 'components/Common/MenuTop'
   	import Sidebar from 'components/Common/Sidebar'
     import Breadcrumb from 'components/Common/Breadcrumb'
-    // 路由
-    import { routerMap } from 'router';
     // 通用方法
     import { CopyArr } from 'common/important.js';
     // Vuex
@@ -63,19 +61,19 @@
             left:0;
             background: #4d5256;
             transition: width .2s ease-in-out;
-            transition: width .2s ease-in-out; 
-            -moz-transition: width .2s ease-in-out; /* Firefox 4 */ 
-            -webkit-transition: width .2s ease-in-out; /* Safari and Chrome */ 
-            -o-transition: width .2s ease-in-out; /* Opera */ 
+            transition: width .2s ease-in-out;
+            -moz-transition: width .2s ease-in-out; /* Firefox 4 */
+            -webkit-transition: width .2s ease-in-out; /* Safari and Chrome */
+            -o-transition: width .2s ease-in-out; /* Opera */
         }
 
         .layout-right{
             width: 100%;
             padding-left: 200px;
             transition: padding-left .2s ease-in-out;
-            -moz-transition: padding-left .2s ease-in-out; /* Firefox 4 */ 
-            -webkit-transition: padding-left .2s ease-in-out; /* Safari and Chrome */ 
-            -o-transition: padding-left .2s ease-in-out; /* Opera */ 
+            -moz-transition: padding-left .2s ease-in-out; /* Firefox 4 */
+            -webkit-transition: padding-left .2s ease-in-out; /* Safari and Chrome */
+            -o-transition: padding-left .2s ease-in-out; /* Opera */
         }
 
         &.layout-mini{
@@ -95,7 +93,7 @@
             text-align:center;
             border-bottom: 1px solid #3a3d44;
 
-            &-text{                
+            &-text{
                 line-height: 50px;
             }
         }
