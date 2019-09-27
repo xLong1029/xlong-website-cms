@@ -63,8 +63,7 @@
                 this.$store.dispatch('LogOut')
                 .then(res => {
                     this.$Message.success('已退出!');
-                    console.log(1);
-                    this.$router.push({name: 'Login'});                      
+                    this.$router.push({name: 'Login'});
                 });
             },
             // 无法显示图片
@@ -111,5 +110,5 @@
         border-radius: 20px;
         -webkit-border-radius: 20px;
         -o-border-radius: 20px;
-    }  
+    }
 </style>

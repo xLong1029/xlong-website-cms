@@ -119,7 +119,7 @@ export const routerMap = [
 						}
 					}
 				]
-			},	
+			},
 			// 资讯文章
 			{
 				path: '/admin/ArticleManage/List',
