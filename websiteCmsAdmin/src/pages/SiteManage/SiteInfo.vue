@@ -38,7 +38,7 @@
                 <Form ref="kwModelForm" :model="kwModelForm" :rules="validate" :label-width="80">
                     <Form-item label="关键词：" prop="keyword">
                         <Input v-model="kwModelForm.keyword" type="textarea" placeholder="请输入关键词"/>
-                    </Form-item>                    
+                    </Form-item>
                     <div class="hint">* 输入的关键词请以逗号" , "进行分隔</div>
                 </Form>
             </div>
@@ -55,7 +55,7 @@
     import Loading from 'components/Common/Loading'
     import SingleImage from 'components/Image/UploadImage/SingleImage'
     // 通用JS
-    import { StrToArr, ArrToStr } from 'common/important.js'
+    import { StrToArr, ArrToStr } from 'utils'
     // 关键词设置
     import KeywordModel from 'mixins/keyword_model.js'
     // Api方法
@@ -90,7 +90,7 @@
                     webRecordInfo: [{ required: true, message: '备案信息不能为空', trigger: 'blur'}],
                     website: [{ required: true, message: '站点地址不能为空', trigger: 'blur'}],
                     keyword: [{ required: true, message: '关键词不能为空', trigger: 'blur'}]
-                }  
+                }
             }
         },
         created(){
@@ -118,7 +118,7 @@
                         this.pageLoading = true;
 
                         this.infoForm.metaKeywords = ArrToStr(this.infoForm.metaKeywords, ',');
-                        
+
                         // 修改
                         Api.EditSiteInfo(this.infoForm)
                         .then(res => {
@@ -133,7 +133,7 @@
                         .catch(err => console.log(err))
                     }
                     else this.$Message.error('提交失败！填写有误');
-                })    
+                })
             },
             // 获取信息
             getDetail(){

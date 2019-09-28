@@ -44,7 +44,7 @@
                     <Form-item label="关键词：" prop="keyword">
                         <Input v-model="kwModelForm.keyword" type="textarea" placeholder="请输入关键词"/>
                     </Form-item>
-                    
+
                     <div class="hint">* 输入的关键词请以逗号" , "进行分隔</div>
                 </Form>
             </div>
@@ -62,12 +62,12 @@
     import ImageCropper from 'components/Image/ImageCropper'
 	import Tinymce from 'components/Common/Tinymce'
     // 通用JS
-    import { GetUrlQuery, StrToArr, ArrToStr } from 'common/important.js'
+    import { GetUrlQuery, StrToArr, ArrToStr } from 'utils'
     // 关键词设置
     import KeywordModel from 'mixins/keyword_model.js'
     // Api方法
     import Api from 'api/article_manage.js'
-    
+
     export default {
         components: { Loading, ImageCropper, Tinymce },
         mixins: [  KeywordModel ],
@@ -140,7 +140,7 @@
                         this.pageLoading = true;
 
                         this.infoForm.metaKeywords = ArrToStr(this.infoForm.metaKeywords, ',');
-                        
+
                         if(this.pageType == 'add'){
                             // 新增
                             Api.AddArticle(this.infoForm)
@@ -154,7 +154,7 @@
                                             // 跳转到列表页
                                             this.$router.push({ name: 'ArticleManage' });
                                         }
-                                    }); 
+                                    });
                                 }
                                 else this.$Message.warning(res.msg);
                             })
@@ -176,14 +176,14 @@
                         }
                     }
                     else this.$Message.error('提交失败！填写有误');
-                })    
+                })
             },
             // 获取文章详情
             getDetail(){
                 Api.GetDetail(this.articleId)
-                .then(res => {                    
+                .then(res => {
                     // 取消页面加载
-                    this.pageLoading = false;                                       
+                    this.pageLoading = false;
                     if(res.code == 200){
                         // 设置数据
                         this.infoForm = res.data;

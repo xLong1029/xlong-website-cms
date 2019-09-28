@@ -7,7 +7,7 @@
             <div class="upload-mask">
                 <Icon v-if="preview" type="eye" @click.native="viewImage" style="margin-right:15px;"></Icon>
                 <Icon type="edit" @click.native="uploadClick"></Icon>
-            </div>            
+            </div>
         </div>
         <!-- <div class="clearfix"></div> -->
         <!-- 上传按钮 -->
@@ -27,7 +27,7 @@
             文件大小为
             <span v-if="fileSize < 1024">{{ fileSize }}kb</span>
             <span v-else>{{ Math.floor(fileSize/1024) }}M</span>
-            以内。            
+            以内。
         </span>
         <!-- 裁剪图片弹窗 -->
         <Modal :title="cropImgModel.title" class="m-cropper-img" v-model="cropImgModel.show" width="900" @on-cancel="hideCropModel">
@@ -50,7 +50,7 @@
             </div>
             <!-- 裁剪预览区域 -->
             <div class="img-preview-area">
-                <div class="preview" :style="previewStyle"> 
+                <div class="preview" :style="previewStyle">
                     <div v-if="previews" :style="previews.div">
                         <img :src="previews.url" :style="previews.img">
                     </div>
@@ -72,7 +72,7 @@
                     文件大小为
                     <span v-if="fileSize < 1024">{{ fileSize }}kb</span>
                     <span v-else>{{ Math.floor(fileSize/1024) }}M</span>
-                    以内。            
+                    以内。
                 </span>
             </div>
             <!-- 底部按钮 -->
@@ -83,7 +83,7 @@
         </Modal>
         <!-- 查看图片弹窗 -->
         <Modal title="查看图片" class="m-view-img" v-model="showModal" width="900">
-            <img :src="getImageUrl" @error="notFoundPic"/>
+            <img :src="GLOBAL.ShowImg(getImageUrl)" @error="notFoundPic"/>
             <div slot="footer"></div>
         </Modal>
     </div>
@@ -221,7 +221,7 @@
                             this.getImageUrl = res.data.url;
                             // 传给父组件url
                             this.$emit('get-img-url', this.getImageUrl);
-                            
+
                             // 停止加载和隐藏进度
                             this.progressHide();
                             this.hideCropModel();
@@ -244,7 +244,7 @@
             // 取消上传
             hideCropModel(){
                 this.cropImgModel.show = false;
-                this.$refs.cropper.clearCrop(); 
+                this.$refs.cropper.clearCrop();
                 this.option.img = '';
             },
             // 选择文件
@@ -257,7 +257,7 @@
                     // 将文件大小字节转成kb
                     let fileSize = Math.floor(fileList[0].size / 1024);
 
-                    let maxSize = this.fileSize;                
+                    let maxSize = this.fileSize;
                     let overHint = maxSize + 'kb';
                     // 控制文件大小
                     if(fileSize > maxSize){
@@ -271,7 +271,7 @@
                     }
 
                     // 显示裁剪弹窗
-                    this.cropImgModel.show = true;                    
+                    this.cropImgModel.show = true;
 
                     let file = fileList[0];
                     // FileReader API ：获取图片的base64 代码 并预览

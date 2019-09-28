@@ -10,7 +10,7 @@
         <div class="clearfix"></div>
         <!-- 查看图片 -->
         <Modal title="查看图片" v-model="showModal" class="m-pop-img" width="900">
-            <img :src="showImgUrl" @error="notFoundPic"/>
+            <img :src="GLOBAL.ShowImg(getImageUrl)" @error="notFoundPic"/>
             <div slot="footer"></div>
         </Modal>
     </div>

@@ -6,49 +6,13 @@
             <Button class="operation-btn" :disabled="selectList.length == 0" type="warning" @click="enableOrDisable(-1)">禁用</Button>
         </div>
         <!-- 内容列表 -->
-        <table ref="contTable" class="m-table" width="100%" cellpadding="0" cellspacing="0">
-            <!-- 表头名称 -->
-            <th v-for="(item, index) in title" :key="index" :align="item.align" :style="{ 'width' : item.width + 'px'}">
-                <Checkbox v-if="item.type == 'CheckBox'" v-model="checkAll" @on-change="selectAll(checkAll)"></Checkbox>
-                <div v-else>
-                    <span v-if="item.required"><i class="required-hint">*</i>{{ item.title }}</span>
-                    <span v-else>{{ item.title }}</span>            
-                </div>
-            </th>
-            <!-- 表格内容 -->
-            <tr v-for="(item, index) in listData" :key="index" :class="item.isDisable == 1 ? 'tr-disable' : ''">
-                <td v-for="(th, i) in title" :key="i" :align="th.align">
-                    <!-- 勾选框 -->
-                    <Checkbox v-if="th.type == 'CheckBox'" v-model="item.isCheck" @on-change="selectRow(index, item.isCheck)"></Checkbox>
-                    <!-- 显示文本 -->
-                    <span v-if="th.type == 'Text'">
-                        <span v-if="th.key == 'isDisable' && item[th.key] == 0" class="status-success">启用</span>
-                        <span v-else-if="th.key == 'isDisable' && item[th.key] == 1" class="status-fail">禁用</span>
-                        <span v-else-if="th.key == 'target' && item[th.key] == 1">当前页打开</span>
-                        <span v-else-if="th.key == 'target' && item[th.key] == 2">新页面跳转</span>
-                        <span v-else>{{ item[th.key] }}</span>
-                    </span>
-                    <!-- 输入框 -->
-                    <Input v-if="th.type == 'Input'" v-model="item[th.key]" placeholder="清输入内容"/>
-                    <!-- 图片上传 -->
-                    <div v-if="th.type == 'UploadImg'">
-                        <!-- 组件-图片上传-单图片显示 -->
-                        <SingleImage :src="item[th.key]" :index="index" upload-dir="img/banner/" :preview="true" :show-hint="false" :file-size="350" @get-img-url="setBanner"></SingleImage>
-                    </div>
-                    <!-- 操作按钮 -->
-                    <div v-if="th.type == 'Button'">
-                        <Button
-                            :type="th.button.type"
-                            :size="th.button.size"
-                            :style="{ 'min-width' : th.button.minWidth + 'px' }"
-                            @click="saveThis(index)"
-                        >
-                        {{ th.button.text }}
-                        </Button>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <EditableTable
+          :title="title"
+          :data="listData"
+          @on-save="saveThis"
+          @on-select="getSelectRowData"
+          @on-all-select="getSelectRowData"
+        />
         <div class="clearfix"></div>
     </div>
 </template>
@@ -56,9 +20,10 @@
 <script>
     // 组件
     import SingleImage from 'components/Image/UploadImage/SingleImage'
+    import EditableTable from 'components/Table/EditableTable'
     // 通用JS
     import Common from 'common/common.js'
-    import { GetUrlQuery } from 'common/important.js'
+    import { GetUrlQuery } from 'utils'
     // Api方法
     import Api from 'api/banner_manage.js'
     // 表格查询
@@ -67,9 +32,9 @@
     import TableOperate from 'mixins/table_operate.js'
     // Vuex
     import { mapGetters } from 'vuex'
-      
+
     export default {
-        components: { SingleImage },
+        components: { SingleImage, EditableTable },
         mixins: [ TableQuery, TableOperate ],
         computed: {
             ...mapGetters([ 'getImageUrl' ]),
@@ -153,12 +118,15 @@
                         key: 'operate',
                         align: 'center',
                         type: 'Button',
-                        button: {
-                            type: 'primary',
-                            size: 'small',
-                            minWidth: '64',
-                            text: '保存'
-                        },
+                        button: [
+                          {
+                            type: "primary",
+                            size: "small",
+                            minWidth: "64",
+                            text: "保存",
+                            click: "save"
+                          }
+                        ],
                         width: 100,
                     },
                 ],
@@ -192,32 +160,6 @@
             this.initData(this.listData);
         },
         methods: {
-            // 全选
-            selectAll(check){
-                this.listData.forEach(item => {                    
-                    if(check){
-                        item.isCheck = true;
-                        // 设置选项列表
-                        this.selectList.push(item.id);
-                    }
-                    else{
-                        item.isCheck = false;
-                        // 清空选项列表
-                        this.clearSelect();
-                    }
-                })
-            },
-            // 选中一行
-            selectRow(index, check){
-                if(check){
-                    this.selectList.push(this.listData[index].id);
-                }
-                else{
-                    this.selectList.forEach((item, i) => {           
-                        if(item == this.listData[index].id) this.selectList.splice(i,1);
-                    })
-                }
-            },
             // 初始化表格内容
             initData(data){
                 // 初始化，给data添加isCheck属性，默认值为false
@@ -228,9 +170,8 @@
                 }
             },
             // 保存数据
-            saveThis(index){
-                if(this.paramsForm.imgUrl){
-                    const row = this.listData[index];
+            saveThis(row){
+                if(row.imgUrl){
                     this.editId = row.id;
                     this.paramsForm.type = row.type;
                     this.paramsForm.sectionType = row.sectionType;
@@ -244,15 +185,9 @@
                     this.$Message.error('提交失败！请上传Banner图片');
                 }
             },
-            // 设置新增Banner
-            setBanner(url, index){
-                this.listData[index].imgUrl = url;
-                this.paramsForm.imgUrl = url;
-            },
-            // 清空选项
-            clearSelect(){
-                this.selectList = [];
-                this.checkAll = false;
+            // 获取选中行数据
+            getSelectRowData(list){
+              list.forEach(e => this.selectList.push(e.id));
             },
             // 编辑数据
             editData(){

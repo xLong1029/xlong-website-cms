@@ -28,7 +28,7 @@ module.exports = {
       // 定义别名和插件位置
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'api': resolve('src/api'),      
+      'api': resolve('src/api'),
       'mock': resolve('src/mock'),
       'mixins': resolve('src/mixins'),
       'assets': resolve('src/assets'),
@@ -36,19 +36,18 @@ module.exports = {
       'components': resolve('src/components'),
       'pages': resolve('src/pages'),
       'qullEditor': resolve( 'src/qullEditor'),
-      'qiniu': resolve( 'src/qiniu'),
-      'tools': resolve( 'src/tools'),
+      'utils': resolve( 'src/utils'),
       'router': resolve( 'src/router'),
     }
   },
   plugins: [
     // 配置全局使用 jquery
-    new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        jquery: "jquery",
-        "window.jQuery": "jquery",
-    })
+    // new webpack.ProvidePlugin({
+    //     $: "jquery",
+    //     jQuery: "jquery",
+    //     jquery: "jquery",
+    //     "window.jQuery": "jquery",
+    // })
   ],
   module: {
     rules: [

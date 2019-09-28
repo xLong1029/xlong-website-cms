@@ -1,10 +1,10 @@
 import Api from 'api/passport.js';
-import { GetCookie, DelCookie } from 'common/important.js';
+import { GetCookie, DelCookie } from 'utils';
 
 // 设置账户信息
 function setAccount(_commit, info) {
 	// 设置用户身份
-	let role = '';		
+	let role = '';
 	switch(info.type){
 		case 1: role = 'admin'; break;
 		case 2: role = 'manager'; break;
@@ -20,7 +20,7 @@ function setAccount(_commit, info) {
 // 清空账户信息
 function clearAccount(_commit) {
 	// 清除token
-	DelCookie('hj_token');
+	DelCookie('xlong_token');
 	_commit('SET_USER', {});
 }
 
@@ -29,7 +29,7 @@ const user = {
 	// 负责存储整个应用的状态数据
 	state: {
 		// 登录凭证
-	  	token: GetCookie('hj_token'),
+	  	token: GetCookie('xlong_token'),
 	  	// 用户信息
 	  	user:{
 			face: '',
@@ -67,7 +67,7 @@ const user = {
 					else{
 						clearAccount(commit);
 						reject(res);
-					}					
+					}
 				})
 				.catch((err) => {
 					clearAccount(commit);

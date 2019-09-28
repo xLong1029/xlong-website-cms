@@ -30,7 +30,7 @@
         <div class="clearfix"></div>
         <!-- 查看图片 -->
         <Modal title="查看图片" class="m-view-img" v-model="showModal" width="900">
-            <img :src="showImgUrl" @error="notFoundPic"/>
+            <img :src="GLOBAL.ShowImg(getImageUrl)" @error="notFoundPic"/>
             <div slot="footer"></div>
         </Modal>
     </div>
@@ -121,7 +121,7 @@
                         desc: '最多只能上传' + this.maxNum + '张图片'
                     });
                     // 停止加载和隐藏进度条
-                    this.progressHide(); 
+                    this.progressHide();
                     return check;
                 }
 
@@ -141,7 +141,7 @@
                         this.urlArr.push(res.data.url);
                         // 传给父组件url
                         this.$emit('get-img-list', this.urlArr);
-                        
+
                         // 停止加载和隐藏进度
                         this.progressHide();
                         this.percentage = 100;

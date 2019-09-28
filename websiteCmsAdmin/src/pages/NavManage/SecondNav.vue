@@ -10,7 +10,7 @@
     // Api方法
     import Api from '@/api/nav_manage.js'
     // 通用JS
-    import { GetUrlQuery } from 'common/important.js'
+    import { GetUrlQuery } from 'utils'
 
     export default {
         components: { NavTemplate },

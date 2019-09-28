@@ -18,7 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { GetCookie } from '@/common/important.js'
+import { GetCookie } from 'utils'
 import "tinymce/tinymce";
 import "../../assets/js/tinymce-langs/zh_CN";
 import '../../assets/js/tinymce-plugins/placeholder/plugin.js'
@@ -52,7 +52,7 @@ export default {
 			// 获取上图片节点
 			imgUrlId: "",
 			headers: {
-				token: GetCookie('hj_token')
+				token: GetCookie('xlong_token')
 			}
 		};
 	},

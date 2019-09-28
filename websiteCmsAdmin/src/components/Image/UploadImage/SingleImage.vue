@@ -30,7 +30,7 @@
         <div class="clearfix"></div>
         <!-- 查看图片 -->
         <Modal title="查看图片" class="m-view-img" v-model="showModal" width="900" style="z-index:9999">
-            <img :src="getImageUrl" @error="notFoundPic"/>
+            <img :src="GLOBAL.ShowImg(getImageUrl)" @error="notFoundPic"/>
             <div slot="footer"></div>
         </Modal>
     </div>
@@ -92,7 +92,7 @@
             }
         },
         watch: {
-			src(val) {                
+			src(val) {
                 if(val){
                     this.showUploadBtn = false;
                     this.getImageUrl = val;
@@ -113,7 +113,7 @@
             // 上传文件
             uploadFile(file){
                 this.progressShow();
-                
+
                 // 设置定时器累增进度条百分比
                 let progress = setInterval(() => {
                     if(this.percentage == 90) clearInterval(progress);
@@ -128,10 +128,9 @@
                 Api.UploadImg(params).then(res => {
                     if(res.code == 200){
                         this.getImageUrl = res.data.url;
-                        console.log(this.index);
                         // 传给父组件url
                         this.index < 0 ? this.$emit('get-img-url', this.getImageUrl) : this.$emit('get-img-url', this.getImageUrl, this.index);
-                        
+
                         // 停止加载和隐藏进度
                         this.progressHide();
                         this.percentage = 100;

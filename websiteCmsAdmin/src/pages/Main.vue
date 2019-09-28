@@ -6,7 +6,7 @@
                 <span v-show="sidebarSpan === 3" class="sidebar-title-text">企业后台管理系统</span>
             </div>
         	<!-- 侧边栏 -->
-            <Sidebar :menu-list="sidebarMenu"></Sidebar>
+            <Sidebar :menu-list="sidebarMenu" :spanWidth="3" :accordion="true"></Sidebar>
         </div>
         <div class="layout-right">
         	<!-- 顶部菜单 -->

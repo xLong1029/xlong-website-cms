@@ -1,6 +1,6 @@
 <template>
     <div class="g-content">
-        <p>欢迎使用 华建后台管理系统.</p><br/>
+        <p>欢迎使用 企业后台管理系统.</p><br/>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
     export default {
         data(){
             return{
-                breadcrumb:[] 
+                breadcrumb:[]
             }
         },
         created(){

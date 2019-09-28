@@ -5,7 +5,7 @@
  * 版本 : version 1.0
  */
 // 通用JS
-import { StrToArr, UniqueArr, ArrRemovEmpty } from 'common/important.js'
+import { StrToArr, UniqueArr, ArrRemovEmpty } from 'utils'
 
 export default {
 	data() {

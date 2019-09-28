@@ -1,15 +1,15 @@
 <template>
  	<Menu ref="menu" mode="horizontal" class="menu-top">
         <!-- 收缩侧边栏按钮 -->
-	    <Button type="text" @click="changeSideBar">
+	    <Button type="text" class="button-icon" @click="changeSideBar">
 	        <Icon type="navicon" size="32"></Icon>
 	    </Button>
         <!-- 退出全屏 -->
-        <Button v-if="setFull" type="text" class="fr" @click="fullExit">
+        <Button v-if="setFull" type="text" class="fr button-icon" @click="fullExit">
             <Icon type="arrow-shrink" size="30"></Icon>
         </Button>
         <!-- 全屏 -->
-        <Button v-else type="text" class="fr" @click="fullScreen">
+        <Button v-else type="text" class="fr button-icon" @click="fullScreen">
             <Icon type="arrow-expand" size="30"></Icon>
         </Button>
         <!-- 账户信息 -->
@@ -111,4 +111,10 @@
         -webkit-border-radius: 20px;
         -o-border-radius: 20px;
     }
+
+.button-icon{
+  &:focus{
+    box-shadow:none;
+  }
+}
 </style>

@@ -1,10 +1,10 @@
-import tools from '@/tools'
+import request from 'utils/request.js'
 
 export default {
   // 获取产品服务列表
   GetServiceList: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/ProductService/ServiceInfo/GetList`, params)
+      request.HttpGet(`/api/WebsiteCms/ProductService/ServiceInfo/GetList`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -12,7 +12,7 @@ export default {
   // 修改产品服务
   EditService: (params, id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/EditService?id=${id}`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/EditService?id=${id}`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -20,7 +20,7 @@ export default {
   // 新增产品服务
   AddService: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/AddService`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/AddService`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -28,7 +28,7 @@ export default {
   // 删除产品服务
   DelService: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/DelService`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/DelService`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -36,7 +36,7 @@ export default {
   // 启用禁用产品服务
   SetEnableService: (enable, ids) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/SetEnable?enable=${enable}`, ids)
+      request.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/SetEnable?enable=${enable}`, ids)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -44,7 +44,7 @@ export default {
   // 在首页显示
   SetShowIndex: (isHome, ids) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/SetShowIndex?isHome=${isHome}`, ids)
+      request.HttpPost(`/api/WebsiteCms/ProductService/ServiceInfo/SetShowIndex?isHome=${isHome}`, ids)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -52,7 +52,7 @@ export default {
   // 获取案例分类列表
   GetCateList: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCateList`, params)
+      request.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCateList`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -60,7 +60,7 @@ export default {
   // 修改案例分类
   EditCate: (params, id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/EditCate?id=${id}`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/EditCate?id=${id}`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -68,7 +68,7 @@ export default {
   // 新增案例分类
   AddCate: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/AddCate`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/AddCate`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -76,7 +76,7 @@ export default {
   // 删除案例分类
   DelCate: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/DelCate`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/DelCate`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -84,7 +84,7 @@ export default {
   // 启用禁用案例分类
   SetEnableCate: (enable, ids) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/SetEnableCate?enable=${enable}`, ids)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/SetEnableCate?enable=${enable}`, ids)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -92,7 +92,7 @@ export default {
   // 获取案例列表
   GetCaseList: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCaseList`, params)
+      request.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCaseList`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -100,7 +100,7 @@ export default {
   // 新增案例
   AddCase: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/AddCase`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/AddCase`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -108,7 +108,7 @@ export default {
   // 删除案例
   DelCase: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/DelCase`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/DelCase`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -116,7 +116,7 @@ export default {
   // 启用禁用案例
   SetEnableCase: (enable, ids) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/SetEnableCase?enable=${enable}`, ids)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/SetEnableCase?enable=${enable}`, ids)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -124,7 +124,7 @@ export default {
   // 获取案例详情
   GetCaseDetail: (id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCaseDetail?id=${id}`)
+      request.HttpGet(`/api/WebsiteCms/ProductService/Case/GetCaseDetail?id=${id}`)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -132,7 +132,7 @@ export default {
   // 编辑案例
   EditCase: (params, id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/ProductService/Case/EditCase?id=${id}`, params)
+      request.HttpPost(`/api/WebsiteCms/ProductService/Case/EditCase?id=${id}`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })

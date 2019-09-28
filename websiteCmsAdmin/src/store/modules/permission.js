@@ -1,5 +1,5 @@
-import { routerMap } from 'router';
-import { CopyArr } from 'common/important.js';
+import routerMap from 'router/routers.js';
+import { CopyArr } from 'utils';
 
 // 判断用户身份是否有权限访问该路由
 function hasPermission(role, route) {

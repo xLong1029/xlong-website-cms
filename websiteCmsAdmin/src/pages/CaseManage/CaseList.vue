@@ -45,7 +45,7 @@
         </div>
         <!--  加载判断 -->
         <Loading v-if="pageLoading"></Loading>
-        <div v-else>            
+        <div v-else>
             <!-- 用户列表 -->
             <Table
                 :row-class-name="rowClassName"
@@ -79,7 +79,7 @@
     import Loading from '@/components/Common/Loading'
     // 通用JS
     import Common from 'common/common.js'
-    import { GetUrlQuery } from 'common/important.js'
+    import { GetUrlQuery } from 'utils'
     // 验证方法
     import Validate from 'common/validate.js'
     // Api方法
@@ -214,7 +214,7 @@
                         render: (h, params) => {
                             return h('div', [
                                 tableSetting.gotoDetail(h, params, this, '查看详情', 'StoreCase'),
-                            ]);                          
+                            ]);
                         }
                     }
                 ],
@@ -224,7 +224,7 @@
                 cateList: []
             }
         },
-        created(){            
+        created(){
             this.init();
         },
         methods: {
@@ -263,7 +263,7 @@
             getCateList(categoryId){
                 let params = categoryId ? { id: categoryId } : null;
                 Api.GetCateList(params)
-                .then(res => {                                  
+                .then(res => {
                     if(res.code == 200){
                         this.cateList = res.data;
                     }

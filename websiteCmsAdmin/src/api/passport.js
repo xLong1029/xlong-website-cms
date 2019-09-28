@@ -1,10 +1,10 @@
-import tools from '@/tools'
+import request from 'utils/request.js'
 
 export default {
     // 登录
     Login : (params) => {
         return new Promise((resolve,reject)=>{
-			tools.HttpPost('/api/WebsiteCms/UserService/Passport/Login', params)
+			request.HttpPost('/api/WebsiteCms/UserService/Passport/Login', params)
 			.then(res => resolve(res))
 			.catch(err => reject(err))
 		})
@@ -13,7 +13,7 @@ export default {
     // token: 用户token参数
     CheckToken : (token) => {
         return new Promise((resolve,reject)=>{
-			tools.HttpGet(`/api/WebsiteCms/UserService/Passport/CheckToken?token=${token}`)
+			request.HttpGet(`/api/WebsiteCms/UserService/Passport/CheckToken?token=${token}`)
 			.then(res => resolve(res))
 			.catch(err => reject(err))
 		})

@@ -42,7 +42,7 @@
                     <Form-item label="关键词：" prop="keyword">
                         <Input v-model="kwModelForm.keyword" type="textarea" placeholder="请输入关键词"/>
                     </Form-item>
-                    
+
                     <div class="hint">* 输入的关键词请以逗号" , "进行分隔</div>
                 </Form>
             </div>
@@ -59,12 +59,12 @@
     import Loading from 'components/Common/Loading'
     import Tinymce from 'components/Common/Tinymce'
     // 通用JS
-    import { GetUrlQuery, StrToArr, ArrToStr } from 'common/important.js'
+    import { GetUrlQuery, StrToArr, ArrToStr } from 'utils'
     // 关键词设置
     import KeywordModel from 'mixins/keyword_model.js'
     // Api方法
     import Api from 'api/pagecont_manage.js'
-    
+
     export default {
         components: { Loading, Tinymce },
         mixins: [  KeywordModel ],
@@ -93,7 +93,7 @@
                 validate: {
                     title: [{ required: true, message: '标题不能为空', trigger: 'blur'}],
                     keyword: [{ required: true, message: '关键词不能为空', trigger: 'blur'}],
-                    showTitle: [{ required: true, 
+                    showTitle: [{ required: true,
                         validator: (rule, value, callback) => {
                             if(this.infoForm.showTitle === '' || this.infoForm.showTitle === null || this.infoForm.showTitle === undefined) callback('请选择是否显示标题');
                             else callback();
@@ -129,7 +129,7 @@
                         this.pageLoading = true;
 
                         this.infoForm.metaKeywords = ArrToStr(this.infoForm.metaKeywords, ',');
-                        
+
                         // 修改
                         Api.EditPageCont(this.infoForm, this.articleId)
                         .then(res => {
@@ -144,14 +144,14 @@
                         .catch(err => console.log(err));
                     }
                     else this.$Message.error('提交失败！填写有误');
-                })    
+                })
             },
             // 获取页面详情
             getDetail(){
                 Api.GetDetail(this.articleId)
-                .then(res => {                    
+                .then(res => {
                     // 取消页面加载
-                    this.pageLoading = false;                                       
+                    this.pageLoading = false;
                     if(res.code == 200){
                         // 设置数据
                         this.infoForm = res.data;

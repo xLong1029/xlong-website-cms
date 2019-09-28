@@ -1,6 +1,10 @@
 <template>
-  <div class="g-content">
-    该页面不存在
+  <div class="error-content">
+    <img :src="require('@/assets/images/404.png')"/>
+    <div>
+      <Button type="primary" class="g-mr10" @click="$router.push({ name: 'Home'})">首页</Button>
+      <Button type="primary" @click="$router.go(-1)">返回上一页</Button>
+    </div>
   </div>
 </template>
 
@@ -9,5 +13,8 @@
 	}
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+.error-content{
+  text-align: center;
+}
 </style>

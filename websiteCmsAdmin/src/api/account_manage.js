@@ -1,10 +1,10 @@
-import tools from '@/tools'
+import request from 'utils/request.js'
 
 export default {
   // 获取账户列表
   GetList: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/AccountService/Admin/GetList`, params)
+      request.HttpGet(`/api/WebsiteCms/AccountService/Admin/GetList`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -12,7 +12,7 @@ export default {
   // 新增账户
   AddAccount: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/AccountService/Admin/AddAccount`, params)
+      request.HttpPost(`/api/WebsiteCms/AccountService/Admin/AddAccount`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -20,7 +20,7 @@ export default {
   // 删除账户
   DelAccount: (params) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/AccountService/Admin/DelAccount`, params)
+      request.HttpPost(`/api/WebsiteCms/AccountService/Admin/DelAccount`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -28,7 +28,7 @@ export default {
   // 启用禁用账户
   SetEnable: (enable, ids) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/AccountService/Admin/SetEnable?enable=${enable}`, ids)
+      request.HttpPost(`/api/WebsiteCms/AccountService/Admin/SetEnable?enable=${enable}`, ids)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -36,7 +36,7 @@ export default {
   // 获取账户详情
   GetDetail: (id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpGet(`/api/WebsiteCms/AccountService/Admin/GetDetail?id=${id}`)
+      request.HttpGet(`/api/WebsiteCms/AccountService/Admin/GetDetail?id=${id}`)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
@@ -44,7 +44,7 @@ export default {
   // 编辑账户
   EditAccount: (params, id) => {
     return new Promise((resolve, reject) => {
-      tools.HttpPost(`/api/WebsiteCms/AccountService/Admin/EditAccount?id=${id}`, params)
+      request.HttpPost(`/api/WebsiteCms/AccountService/Admin/EditAccount?id=${id}`, params)
         .then(res => resolve(res))
         .catch(err => reject(err))
     })

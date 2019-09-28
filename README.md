@@ -4,6 +4,18 @@
 
 xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页面服务端客户端渲染的企业CMS系统，可用于企业网站，微信微网站的实现。前台页面可响应式匹配各种移动设备。
 
+## 项目迭代
+
+1. V1.0版本
+
+    使用Jq编写侧边栏组件
+
+2. V2.0版本
+
+    移除:jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态；<br/>
+    添加:404页面和“可编辑表格”组件；<br/>
+    优化项目结构
+
 ## 项目说明
 
 #### 1. 前后端分离开发模式
@@ -103,7 +115,6 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │
 ├─app
 │  │  router.js // 路由配置
-│  │
 │  │
 │  ├─controller
 │  │  │  admin.js // 后台相关controller
@@ -212,8 +223,9 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  ├─tools
 |  |    index.js// 封装axios请求等工具   
 │  │
-│  └─router
-│       index.js // 路由配置
+│  └─router // 路由配置
+│       index.js
+│       routers.js
 │
 ├─static // 静态资源
 │

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-	import { SetCookie, SetLocalS, GetLocalS, DelLocalS, Encrypt, Decrypt } from 'common/important.js'
+	import { SetCookie, SetLocalS, GetLocalS, DelLocalS, Encrypt, Decrypt } from 'utils'
 	// Api方法
 	import LoginApi from 'api/passport.js'
 	import CommonApi from 'api/common.js'
@@ -115,7 +115,7 @@
 								const result = res.data;
 
 								// 存储token
-								SetCookie('hj_token', result.token);
+								SetCookie('xlong_token', result.token);
 								// 判断是否记住密码
 								if (this.remeberPwd) {
 									// 本地存储用户名和密码
@@ -127,7 +127,7 @@
 									DelLocalS('password');
 								}
 								this.$store.commit('SET_USER_TOKEN', result.token);
-								
+
 								// 跳转到后台主页
 								this.$router.push({ name: 'Main' });
 								this.$Message.success('登录成功!');
