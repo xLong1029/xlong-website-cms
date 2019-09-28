@@ -12,8 +12,8 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 2. V2.0版本
 
-    移除:jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态；<br/>
-    添加:404页面和“可编辑表格”组件；<br/>
+    移除jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态；<br/>
+    添加404页面和“可编辑表格”组件；<br/>
     优化项目结构
 
 ## 项目说明
