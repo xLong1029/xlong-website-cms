@@ -216,12 +216,14 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │
 │  ├─common // 通用js模块
 │  │    common.js // 通用工具
-│  │    important.js // 封装一些重要函数
 │  │    table_setting.js // 封装一些iView表格按钮渲染
 │  │    validate.js // 封装一些iView表单验证方法
 │  │
 │  ├─tools
-|  |    index.js// 封装axios请求等工具   
+│  │    index.js// 封装axios请求等工具   
+│  ├─utils // 通用工具函数
+│  │    index.js
+│  │    request.js// 封装axios请求等工具  
 │  │
 │  └─router // 路由配置
 │       index.js
