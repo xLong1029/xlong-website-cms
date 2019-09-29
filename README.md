@@ -225,7 +225,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │
 │  └─router // 路由配置
 │       index.js
-│       routers.js
+│       routes.js
 │
 ├─static // 静态资源
 │

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routes from './routers'
+import routes from './routes'
 import store from '@/store'
 // 获取cookie
 import { GetCookie } from 'utils'

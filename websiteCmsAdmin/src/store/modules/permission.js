@@ -1,4 +1,4 @@
-import routerMap from 'router/routers.js';
+import routerMap from 'router/routes.js';
 import { CopyArr } from 'utils';
 
 // 判断用户身份是否有权限访问该路由
