@@ -1,8 +1,0 @@
-{
-    "less.compile": {
-        "compress":  true,  // true => remove surplus whitespace
-        "sourceMap": false,  // true => generate source maps (.css.map files)
-        "out": "..\\css\\",
-        "autoprefixer": "> 5%, last 2 Chrome versions, not ie 6-9"
-    }
-}
