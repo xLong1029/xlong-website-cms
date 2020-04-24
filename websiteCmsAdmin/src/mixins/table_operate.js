@@ -22,7 +22,11 @@ export default {
 			// 清空选项列表
 			this.selectList = [];
 			for(let i = 0 ; i < selection.length ; i ++){
-				this.selectList.push(selection[i].id);
+                // 去重
+                console.log(this.selectList, selection);
+                if(this.selectList.indexOf(selection[i].id) < 0){
+                    this.selectList.push(selection[i].id);
+                }				
             }
         },
         // 清空选项

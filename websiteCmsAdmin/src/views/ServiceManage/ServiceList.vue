@@ -169,6 +169,7 @@
                         align: 'center',
                         width: 100,
                         render: (h,params) => {
+                            // console.log(this.selectList);
                             return tableSetting.commonSwitch(h, params, this, 'setShowIndex', 'showIndex');
                         }
                     },
@@ -249,8 +250,7 @@
                     this.updateList();
                     return false;
                 }
-
-				this.selectList.push(params.row.id);
+                
 				let isHome = params.row.showIndex == 1 ? 'false': 'true';
 
 				Api.SetShowIndex(isHome, [params.row.id]).then(res => {

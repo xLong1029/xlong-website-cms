@@ -47,7 +47,7 @@
                 :preview="true"
                 :show-hint="false"
                 :file-size="imgMaxSize"
-                @get-img-url="setImg"
+                @get-img-url="setImg($event, index)"
               ></SingleImage>
               <!-- <div class="upload-img">
                           <img class="show-img" :src="item[th.key]" alt="图片加载失败" @error="notFoundPic"/>
@@ -174,7 +174,7 @@ export default {
       this.selectList = [];
     },
     // 设置图片
-    setImg() {
+    setImg(url, index) {
       this.data[index].imgUrl = url;
     },
     // 按钮操作

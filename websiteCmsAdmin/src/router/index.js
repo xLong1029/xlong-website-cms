@@ -9,21 +9,21 @@ Vue.use(VueRouter)
 export const routes = [
   // 后台登录
   {
-    path: '/admin/Login',
+    path: '/Login',
     name: 'Login',
     component: () => import('views/Login/Index')
   },
   // 后台管理页
   {
-    path: '/admin',
+    path: '/',
     name: 'Main',
     component: () => import('views/Main'),
     // 路由重定向
-    redirect: '/admin/Home',
+    redirect: '/Home',
     children: [
       // 后台首页
       {
-        path: '/admin/Home',
+        path: '/Home',
         name: 'Home',
         component: () => import('views/Home/Index'),
         meta: {
@@ -34,14 +34,14 @@ export const routes = [
       },
       // 个人资料
       {
-        path: '/admin/Profile',
+        path: '/Profile',
         name: 'Profile',
         component: () => import('views/Profile/Profile'),
         hidden: true
       },
       // 修改密码
       {
-        path: '/admin/ChangePwd',
+        path: '/ChangePwd',
         name: 'ChangePwd',
         component: () => import('views/Profile/ChangePwd'),
         hidden: true
@@ -49,7 +49,7 @@ export const routes = [
       // 账户管理
       // 后台账户列表
       {
-        path: '/admin/AccountManage/List',
+        path: '/AccountManage/List',
         name: 'AccountManage',
         component: () => import('views/AccountManage/AccountList'),
         meta: {
@@ -61,7 +61,7 @@ export const routes = [
       },
       // 后台账户-新增/编辑
       {
-        path: '/admin/AccountManage/Store',
+        path: '/AccountManage/Store',
         name: 'StoreAccount',
         component: () => import('views/AccountManage/StoreAccount'),
         meta: {
@@ -73,7 +73,7 @@ export const routes = [
       // 导航管理
       // 一级导航列表
       {
-        path: '/admin/NavManage/FirstNav',
+        path: '/NavManage/FirstNav',
         name: 'NavManage',
         component: () => import('views/NavManage/FirstNav'),
         meta: {
@@ -85,7 +85,7 @@ export const routes = [
       },
       // 二级导航列表
       {
-        path: '/admin/NavManage/SecondNav',
+        path: '/NavManage/SecondNav',
         name: 'SecondNav',
         component: () => import('views/NavManage/SecondNav'),
         meta: {
@@ -96,7 +96,7 @@ export const routes = [
       },
       // Banner管理
       {
-        path: '/admin/bannerManage',
+        path: '/bannerManage',
         name: 'BannerManage',
         meta: {
           roles: ['admin', 'manager'],
@@ -107,7 +107,7 @@ export const routes = [
         children: [
           // 首页轮播图
           {
-            path: '/admin/BannerManage/IndexBanner',
+            path: '/BannerManage/IndexBanner',
             name: 'IndexBanner',
             component: () => import('views/BannerManage/IndexBanner'),
             meta: {
@@ -118,7 +118,7 @@ export const routes = [
           },
           // 单页面顶部图
           {
-            path: '/admin/BannerManage/TopBanner',
+            path: '/BannerManage/TopBanner',
             name: 'TopBanner',
             component: () => import('views/BannerManage/TopBanner'),
             meta: {
@@ -131,7 +131,7 @@ export const routes = [
       },
       // 资讯文章
       {
-        path: '/admin/ArticleManage/List',
+        path: '/ArticleManage/List',
         name: 'ArticleManage',
         component: () => import('views/ArticleManage/ArticleList'),
         meta: {
@@ -143,7 +143,7 @@ export const routes = [
       },
       // 文章存储
       {
-        path: '/admin/ArticleManage/Store',
+        path: '/ArticleManage/Store',
         name: 'StoreArticle',
         component: () => import('views/ArticleManage/StoreArticle'),
         meta: {
@@ -154,7 +154,7 @@ export const routes = [
       },
       // 产品服务
       {
-        path: '/admin/ServiceManage/List',
+        path: '/ServiceManage/List',
         name: 'ServiceManage',
         component: () => import('views/ServiceManage/ServiceList'),
         meta: {
@@ -166,7 +166,7 @@ export const routes = [
       },
       // 案例管理
       {
-        path: '/admin/CaseManage',
+        path: '/CaseManage',
         name: 'CaseManage',
         meta: {
           roles: ['admin', 'manager'],
@@ -177,7 +177,7 @@ export const routes = [
         children: [
           // 案例
           {
-            path: '/admin/CaseManage/CaseCate',
+            path: '/CaseManage/CaseCate',
             name: 'CaseCate',
             component: () => import('views/CaseManage/CaseCate'),
             meta: {
@@ -188,7 +188,7 @@ export const routes = [
           },
           // 案例
           {
-            path: '/admin/CaseManage/List',
+            path: '/CaseManage/List',
             name: 'CaseList',
             component: () => import('views/CaseManage/CaseList'),
             meta: {
@@ -198,7 +198,7 @@ export const routes = [
             }
           },
           {
-            path: '/admin/CaseManage/Store',
+            path: '/CaseManage/Store',
             name: 'StoreCase',
             component: () => import('views/CaseManage/StoreCase'),
             meta: {
@@ -211,7 +211,7 @@ export const routes = [
       },
       // 公司信息管理
       {
-        path: '/admin/CompanyInfo',
+        path: '/CompanyInfo',
         name: 'CompanyInfo',
         meta: {
           roles: ['admin', 'manager'],
@@ -222,7 +222,7 @@ export const routes = [
         children: [
           // 公司介绍
           {
-            path: '/admin/CompanyInfo/Company',
+            path: '/CompanyInfo/Company',
             name: 'CompanyIntro',
             component: () => import('views/CompanyInfo/CompanyIntro'),
             meta: {
@@ -233,7 +233,7 @@ export const routes = [
           },
           // 公司团队
           {
-            path: '/admin/CompanyInfo/Team',
+            path: '/CompanyInfo/Team',
             name: 'Team',
             component: () => import('views/CompanyInfo/Team'),
             meta: {
@@ -244,7 +244,7 @@ export const routes = [
           },
           // 联系我们
           {
-            path: '/admin/CompanyInfo/Contact',
+            path: '/CompanyInfo/Contact',
             name: 'Contact',
             component: () => import('views/CompanyInfo/Contact'),
             meta: {
@@ -257,7 +257,7 @@ export const routes = [
       },
       // 单页面管理
       {
-        path: '/admin/PageContManage/List',
+        path: '/PageContManage/List',
         name: 'PageContManage',
         component: () => import('views/PageContManage/PageContList'),
         meta: {
@@ -269,7 +269,7 @@ export const routes = [
       },
       // 单页面存储
       {
-        path: '/admin/PageContManage/Store',
+        path: '/PageContManage/Store',
         name: 'StorePageCont',
         component: () => import('views/PageContManage/StorePageCont'),
         meta: {
@@ -280,7 +280,7 @@ export const routes = [
       },
       // 站点管理
       {
-        path: '/admin/SiteManage/SiteInfo',
+        path: '/SiteManage/SiteInfo',
         name: 'SiteManage',
         component: () => import('views/SecondPane'),
         meta: {
@@ -291,7 +291,7 @@ export const routes = [
         children: [
           // 站点信息
           {
-            path: '/admin/SiteManage/SiteInfo',
+            path: '/SiteManage/SiteInfo',
             name: 'SiteInfo',
             component: () => import('views/SiteManage/SiteInfo'),
             meta: {
@@ -302,7 +302,7 @@ export const routes = [
           },
           // 友情链接
           {
-            path: '/admin/SiteManage/FriendlyLink',
+            path: '/SiteManage/FriendlyLink',
             name: 'FriendlyLink',
             component: () => import('views/SiteManage/FriendlyLink'),
             meta: {
@@ -313,7 +313,7 @@ export const routes = [
           },
           // 底部信息
           {
-            path: '/admin/SiteManage/FooterInfo',
+            path: '/SiteManage/FooterInfo',
             name: 'FooterInfo',
             component: () => import('views/SiteManage/FooterInfo'),
             meta: {

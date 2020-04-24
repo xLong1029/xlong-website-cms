@@ -240,7 +240,6 @@
             },
 			// 在首页显示
 			setShowIndex(params){
-				this.selectList.push(params.row.id);
 				let isHome = params.row.showIndex == 1 ? 'false': 'true';
 
 				Api.SetShowIndex(isHome, [params.row.id]).then(res => {

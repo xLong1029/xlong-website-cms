@@ -20,9 +20,11 @@ module.exports = app => {
   router.get('/page/:name', app.controller.home.pageCont);
   /* 路由重定向 */
   router.redirect('/', '/index', 302);
+  /* 路由重定向 */
+  router.redirect('/admin', '/public/admin/Login', 302);
 
   /* 后台路由 */
-  router.get('/admin(/.+)?/', controller.admin.index);
+  router.get('/public/admin(/.+)?/', controller.admin.index);
 
   /* Api接口路由 */
   const checkToken = app.middleware.checkToken();

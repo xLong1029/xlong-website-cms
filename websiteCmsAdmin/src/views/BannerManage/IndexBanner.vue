@@ -250,7 +250,7 @@ export default {
       }
     },
     // 窗口新增Banner
-    setFormBanner(url, index) {
+    setFormBanner(url) {
       this.modelForm.imgUrl = url;
     },
     // 弹窗可见性
@@ -272,13 +272,11 @@ export default {
     },
     // 保存数据
     saveThis(row) {
-      if (row.imgUrl) {
-        this.editId = row.id;
-        this.modelForm.type = row.type;
-        this.modelForm.sectionType = row.sectionType;
-        this.modelForm.title = row.title;
-        this.modelForm.linkUrl = row.linkUrl;
-        this.modelForm.target = row.target;
+      
+      const { id, type, sectionType, title, linkUrl, target, imgUrl } = row;
+      if (imgUrl) {
+        this.editId = id;
+        this.modelForm = { type, sectionType, title, linkUrl, target, imgUrl };
         // 编辑数据
         this.editData();
       } else {
