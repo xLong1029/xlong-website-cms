@@ -182,13 +182,17 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 #### 2. websiteCmsAdmin 后台项目
 
 ```
-│  .babelrc
-│  .editorconfig
-│  .postcssrc.js
+│  .browserslistrc
+│  .eslintrc.js
+│  babel.config.js
+│  vue.config.js // 配置文件
 │  .gitignore
-│  index.html // 首页入口文件
 │  package.json
 │  README.md
+│
+├─public
+│  index.html // 首页入口文件
+│  favicon.ico // 站点图标
 │
 ├─.vscode // vscode配置，用于配置less
 │
