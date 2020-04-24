@@ -35,7 +35,7 @@
     import Loading from 'components/Common/Loading'
     import SingleImage from 'components/Image/UploadImage/SingleImage'
     // 通用方法
-    import Common from 'common/common.js'
+    import Common from 'utils/common.js'
 	// Api方法
     import Api from 'api/profile.js'
     // Vuex

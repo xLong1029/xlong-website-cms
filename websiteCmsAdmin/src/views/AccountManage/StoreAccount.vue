@@ -74,7 +74,7 @@
     import Loading from 'components/Common/Loading'
     import SingleImage from 'components/Image/UploadImage/SingleImage'
     // 通用JS
-    import Common from 'common/common.js'
+    import Common from 'utils/common.js'
     import { GetUrlQuery } from 'utils'
     // 验证方法
     import Validate from 'utils/validate.js'

@@ -4,7 +4,7 @@
  * 日期 : 2017-10-25
  * 版本 : version 2.0
  */
-import Common from '../common/common.js'
+import Common from './common.js'
 import { CompareDate } from './index.js'
 
 export default {

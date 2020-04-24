@@ -13,7 +13,7 @@
       <!-- 一级菜单列表-含二级菜单 -->
       <template v-if="menu.children">
         <div class="xl-menu-title" @click="selectMenu(i)">
-          <a>
+          <div>
             <Icon
               v-show="!menu.meta.isTitle"
               class="xl-submenu-title__icon"
@@ -22,7 +22,7 @@
             ></Icon>
             <span class="xl-submenu-title__text sidebar-text">{{ menu.meta.title }}</span>
             <Icon class="xl-submenu-title__arrow" type="ios-arrow-down"></Icon>
-          </a>
+          </div>
         </div>
         <!-- 二级子菜单列表 -->
         <ul class="m-xl-submenu-list">
@@ -206,11 +206,6 @@ export default {
       let submenuList = menuItem.querySelector(".m-xl-submenu-list");
       // 判断是否有子菜单
       if (submenuList) {
-        if (this.active.mIndex === index) {
-          this.selectSubmenu(this.active.mIndex, this.active.subIndex);
-          return;
-        }
-
         let submenuItems = submenuList.children;
 
         // 未开启手风琴
@@ -253,6 +248,12 @@ export default {
 
           // 展开二级菜单
           this.expanSubmenu(menuItem, submenuList);
+          if (this.active.mIndex === index) {
+            let submenuItems = menuItem.querySelectorAll(".xl-submenu-title");
+            this.inActiveSubmenu(submenuItems);
+
+            AddClass(submenuItems[this.active.subIndex], "xl-submenu-active");
+          }
         }
       } else {
         this.activeMenu(menuItem);
@@ -364,7 +365,8 @@ export default {
 }
 
 .xl-menu-title {
-  > a {
+  > a,
+  div {
     padding: 14px 24px;
     display: block;
   }

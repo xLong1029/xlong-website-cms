@@ -6,9 +6,27 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 ## 迭代说明
 
-1. 移除jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态
-2. 添加404页面和“可编辑表格”组件
-3. 优化项目结构
+#### 2020-04-22
+更新：手脚架改用vue-cli 4.x <br/>
+更新：iView至4.x版本(即ViewUI) <br/>
+
+#### 2020-04-23
+优化：项目结构 <br/>
+优化：后台登录信息失效提示 <br/>
+优化：store按模块配置 <br/>
+优化：权限配置 <br/>
+
+#### 2020-04-25
+优化：侧边栏菜单setActive多次调用问题，只调用1次，提高性能 <br/>
+修复BUG：C端“图标展示”页面，图标数据显示不全 <br/>
+修复BUG：图片裁剪BUG，无法显示裁剪框 <br/>
+修复BUG：侧边栏菜单二级菜单未开启accordion时箭头动画有误 <br/>
+修复BUG：侧边栏菜单选择菜单边缘时路由不跳转，仅在选中文本时才跳转 <br/>
+修复BUG：侧边栏菜单一级菜单下的2个二级菜单互相添砖时，高亮状态有误 <br/>
+修复BUG：列表多选时选项值重复 <br/>
+修复BUG：列表设置“显示在首页”操作时，多选selectList重复取值 <br/>
+修复BUG：首页Banner和顶部Banner无法编辑图片 <br/>
+修复BUG：cookie无法删除 <br/>
 
 ## 项目说明
 
@@ -129,7 +147,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  ├─public
 │  │  │
 │  │  ├─admin // 后台项目资源
-│  │  │  └─dist // 打包后生成目录文件
+│  │  │  打包后生成目录资源
 │  │  │
 │  │  ├─common // 通用模块
 │  │  │
@@ -176,6 +194,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │
 ├─src
 │  │  main.js // 项目入口js
+│  │  permission.js // 权限配置（路由守卫）
 │  │  app.js // 根组件
 │  │
 │  ├─assets // 资源目录，这里的资源会被wabpack构建
@@ -189,6 +208,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  ├─components // 功能组件
 │  │  |
 │  │  ├─Common // 通用组件
+│  │  ├─Table // 表格相关组件
 │  │  └─Image // 图片相关组件
 │  │
 │  ├─pages // 页面组件
@@ -208,18 +228,15 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │    table_query.js // 表格查询
 │  │    upload_img.js // 上传图片
 │  │
-│  ├─common // 通用js模块
-│  │    common.js // 通用工具
-│  │    table_setting.js // 封装一些iView表格按钮渲染
-│  │    validate.js // 封装一些iView表单验证方法
-│  │  
 │  ├─utils 
 │  │    index.js // 封装一些工具函数
 │  │    request.js// 封装axios请求等工具  
+│  │    common.js // 通用常量
+│  │    table_setting.js // 封装一些iView表格按钮渲染
+│  │    validate.js // 封装一些iView表单验证方法
 │  │
 │  └─router // 路由配置
 │       index.js
-│       routes.js
 │
 ├─static // 静态资源
 │
@@ -238,7 +255,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 > npm install
 3. 运行前台项目
 > npm run dev
-4. 访问地址：http://localhost:6060/index
+4. 访问地址：http://localhost:6060
 
 #### 后台项目
 1. 进入后台目录
@@ -247,20 +264,20 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 > npm install 
 3. 运行后台项目  
 > npm run dev
-4. 访问地址：http://localhost:6061/admin
+4. 访问地址：http://localhost:6061
 
 * 代理请求已经配置好，可在config下配置proxyTable更改
 
-## 打包后台项目
+## 打包前台项目到后台中运行
 1. 在 websiteCmsAdmin 项目下  
 > npm run build
-2. 将打包好的dist文件复制到'websiteCmsClient\app\public\admin'目录下  
-3. 在 websiteCmsClient 项目下   
-> npm install --production
-4. 在 websiteCmsClient 项目启动  
+2. 将打包好的dist文件下所有内容复制到'websiteCmsClient\app\public\admin'目录下  
+3. 在 websiteCmsClient 项目启动  
 > npm run dev
 
-* 打包后运行 websiteCmsClient 可以通过 http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
+* 打包后再启动 websiteCmsClient：  
+前台地址：http://127.0.0.1:6060/index  
+后台地址：http://127.0.0.1:6060/admin 或 http://127.0.0.1:6060/public/admin
 
 ## 应用部署
 

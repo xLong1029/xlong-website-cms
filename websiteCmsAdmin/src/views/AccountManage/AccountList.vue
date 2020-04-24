@@ -85,7 +85,7 @@
     // 组件
     import Loading from '@/components/Common/Loading'
     // 通用JS
-    import Common from 'common/common.js'
+    import Common from 'utils/common.js'
     // 验证方法
     import Validate from 'utils/validate.js'
     // Api方法
