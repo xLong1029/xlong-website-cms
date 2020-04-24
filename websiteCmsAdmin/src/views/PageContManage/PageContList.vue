@@ -237,7 +237,7 @@
                 modelValidate: {
                     name: [
                         { required: true, message: '链接名称不能为空', trigger: 'blur'},
-                        { pattern: /^[a-zA-Z0-9]([-_a-zA-Z0-9]{2,20})$/, message: "链接名称格式不正确", trigger: "blur" }
+                        { pattern: /^[a-zA-Z0-9]([-_a-zA-Z0-9]{1,19})$/, message: "链接名称格式不正确", trigger: "blur" }
                     ],
                     title: [{ required: true, message: '标题不能为空', trigger: 'blur' }] 
                 },

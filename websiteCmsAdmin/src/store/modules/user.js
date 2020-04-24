@@ -55,7 +55,6 @@ const actions = {
 			Api.CheckToken(GetCookie('xlong_token')).then(res => {
 				if (res.code == 200) {
 					const info = setAccount(commit, res.data);
-					console.log(info);
 					resolve(info);
 				}
 				else {

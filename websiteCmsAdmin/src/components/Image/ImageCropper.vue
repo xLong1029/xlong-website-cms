@@ -19,7 +19,7 @@
     <!-- <div class="clearfix"></div> -->
     <!-- 上传按钮 -->
     <div v-show="showUploadBtn" class="upload-btn" @click="uploadClick">
-      <Icon type="camera" size="20"></Icon>
+      <Icon type="md-camera" size="20" />
       <input ref="imgFile" type="file" :accept="format" hidden @change="selectFile" />
     </div>
     <!-- <div class="clearfix"></div> -->
@@ -80,13 +80,13 @@
       <!-- 操作区域 -->
       <div class="img-button-area">
         <Button type="primary" @click="changeScale(1)">
-          <Icon type="plus"></Icon>
+          <Icon type="ios-add" size="22" />
         </Button>
         <Button type="primary" @click="changeScale(-1)">
-          <Icon type="minus"></Icon>
+          <Icon type="ios-remove" size="22" />
         </Button>
         <Button type="primary" @click="rotateRight">
-          <Icon type="refresh"></Icon>
+          <Icon type="ios-refresh" size="22" />
         </Button>
       </div>
       <!-- 图片格式提示 -->
@@ -315,13 +315,11 @@ export default {
 
           this.option.img = data;
 
-          const imgCropperArea = document.getElementsByClassName(
-            "img-cropper-area"
-          );
+          const imgCropperArea = document.getElementsByClassName("img-cropper-area");
 
-          imgCropperArea.style.height = "500px";
-          // 设置高度显示图片裁剪区域
-          // $('.img-cropper-area').height('500px');
+          if(imgCropperArea.length){
+            imgCropperArea[0].style.height = "500px";
+          }
         };
         // 转化为base64
         // reader.readAsDataURL(file);

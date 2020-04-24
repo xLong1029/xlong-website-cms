@@ -3,7 +3,7 @@
         <!--  加载判断 -->
         <Loading v-if="pageLoading"></Loading>
         <div v-else>
-            <Form ref="infoForm" :model="infoForm" :rules="validate" :label-width="120">
+            <Form ref="infoForm" :model="infoForm" :rules="validate" :label-width="125">
                 <Form-item label="案例分类：" prop="categoryId">
                     <Select v-model="infoForm.categoryId" placeholder="请选择分类">
                         <Option v-for="(item, index) in cateList" :value="item.id" :key="index">{{ item.categoryName }}</Option>

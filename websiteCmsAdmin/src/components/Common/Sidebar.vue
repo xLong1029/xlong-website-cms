@@ -208,7 +208,10 @@ export default {
         let activeItem = submenuList.querySelectorAll(".xl-submenu-title")[
           subIndex
         ];
-        if (HasClass(activeItem, "xl-submenu-active")) return;
+        if (HasClass(activeItem, "xl-submenu-active")) {
+          console.log(111);
+          return;
+        }
 
         AddClass(activeItem, "xl-submenu-active");
 
