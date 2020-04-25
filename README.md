@@ -17,10 +17,10 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
     优化项目结构  
 
 3. V3.0版本  
-   项目 websiteCmsAdmin 改用 vue-cli 4.x 重构
-   UI框架iView至4.x版本(即ViewUI)  
-   优化侧边栏、可编辑表格组件和权限配置  
-   修复一堆功能BUG（详情查看V3.0分支readme）  
+   项目 websiteCmsAdmin 改用 vue-cli 4.x 重构;  
+   UI框架iView至4.x版本(即ViewUI);  
+   优化侧边栏、可编辑表格组件和权限配置;  
+   修复一堆功能BUG（详情查看V3.0分支readme）;  
    优化项目结构  
 
 ## 项目说明
