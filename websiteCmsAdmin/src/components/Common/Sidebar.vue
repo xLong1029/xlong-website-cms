@@ -208,7 +208,7 @@ export default {
       if (submenuList) {
         let submenuItems = submenuList.children;
 
-        // 未开启手风琴
+        /* 未开启手风琴-start */
         if (!this.accordion) {
           submenuList.offsetHeight > 0
             ? SlideUp(
@@ -225,7 +225,9 @@ export default {
           ToggleClass(menuItem, "xl-submenu-expand");
           return;
         }
+        /* 未开启手风琴-end */
 
+        /* 开启手风琴-start */
         if (HasClass(menuItem, "xl-menu-active")) {
           RemoveClass(menuItem, "xl-menu-active");
           RemoveClass(menuItem, "xl-submenu-expand");
@@ -233,15 +235,17 @@ export default {
         } else {
           AddClass(menuItem, "xl-menu-active");
 
+          let activeMenuItem = this.$refs.menuItem[this.active.mIndex];
+
           let siblings = SiblingsNode(menuItem);
           siblings.forEach(e => {
-            let activeMenuItem = this.$refs.menuItem[this.active.mIndex];
-            let activeMenuSubmenuList = activeMenuItem.querySelector(
-              ".m-xl-submenu-list"
-            );
-
-            // 若原激活菜单有二级菜单则取消其激活状态
-            if (activeMenuSubmenuList) {
+            if(activeMenuItem === e){
+              let activeMenuSubmenuList = activeMenuItem.querySelector(".m-xl-submenu-list");
+              if(activeMenuSubmenuList){
+                this.inActiveMenu(activeMenuItem);
+              }
+            }
+            else{
               this.inActiveMenu(e);
             }
           });
@@ -255,6 +259,7 @@ export default {
             AddClass(submenuItems[this.active.subIndex], "xl-submenu-active");
           }
         }
+        /* 开启手风琴-end */
       } else {
         this.activeMenu(menuItem);
       }

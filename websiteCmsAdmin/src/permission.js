@@ -44,7 +44,6 @@ router.beforeEach(async (to, from, next) => {
 	}
 	// 没有token则全部重定向到登录页
 	else {
-		console.log(to.name);
 		// 免登录白名单，可直接进入
 		if (whiteList.indexOf(to.name) !== -1) next();
 		else next({ name: 'Login' });
