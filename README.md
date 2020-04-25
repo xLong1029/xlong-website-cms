@@ -179,9 +179,9 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 ```
 │  .browserslistrc
 │  .eslintrc.js
+│  .gitignore
 │  babel.config.js
 │  vue.config.js // 配置文件
-│  .gitignore
 │  package.json
 │  README.md
 │
@@ -211,7 +211,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │  ├─Table // 表格相关组件
 │  │  └─Image // 图片相关组件
 │  │
-│  ├─pages // 页面组件
+│  ├─views // 页面组件
 │  │    AccoutnManage.vue // 账户管理
 │  │    ArticleManage.vue // 文章管理
 │  │    ...
