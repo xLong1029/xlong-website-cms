@@ -23,7 +23,6 @@ export default {
 			this.selectList = [];
 			for(let i = 0 ; i < selection.length ; i ++){
                 // 去重
-                console.log(this.selectList, selection);
                 if(this.selectList.indexOf(selection[i].id) < 0){
                     this.selectList.push(selection[i].id);
                 }				
