@@ -6,9 +6,22 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 ## 迭代说明
 
+#### 2019-09-29
 1. 移除jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态
 2. 添加404页面和“可编辑表格”组件
 3. 优化项目结构
+
+#### 2020-04-25
+1. 修复BUG：登录信息失效一直保留在404页面的问题 
+2. 修复BUG：首页Banner和顶部Banner无法编辑图片 
+3. 修复BUG：列表设置“显示在首页”操作时，多选selectList重复取值
+4. 修复BUG：侧边栏菜单二级菜单未开启accordion时箭头动画有误  
+5. 修复BUG：侧边栏菜单选择菜单边缘时路由不跳转，仅在选中文本时才跳转  
+6. 修复BUG：侧边栏菜单一级菜单下的2个二级菜单互相添砖时，高亮状态有误
+7. 修复BUG：C端“图标展示”页面，图标数据显示不全  
+8. 修复BUG：图片裁剪BUG，无法显示裁剪框
+9. 修复BUG：列表设置“显示在首页”操作时，多选selectList重复取值
+10. 优化：侧边栏菜单setActive多次调用问题，只调用1次，提高性能
 
 ## 项目说明
 
@@ -255,12 +268,10 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 1. 在 websiteCmsAdmin 项目下  
 > npm run build
 2. 将打包好的dist文件复制到'websiteCmsClient\app\public\admin'目录下  
-3. 在 websiteCmsClient 项目下   
-> npm install --production
-4. 在 websiteCmsClient 项目启动  
+3. 在 websiteCmsClient 项目启动  
 > npm run dev
 
-* 打包后运行 websiteCmsClient 可以通过 http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
+* 打包后启动 websiteCmsClient 可以通过 http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
 
 ## 应用部署
 
