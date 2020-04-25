@@ -191,8 +191,9 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  README.md
 │
 ├─public
-│  index.html // 首页入口文件
-│  favicon.ico // 站点图标
+│  │ index.html // 首页入口文件
+│  │
+│  └─static // 静态资源
 │
 ├─.vscode // vscode配置，用于配置less
 │
