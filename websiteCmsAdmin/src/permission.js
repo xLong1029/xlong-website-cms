@@ -5,7 +5,7 @@ import { Message } from 'view-design'
 import { GetCookie } from 'utils'
 
 // 不重定向白名单
-const whiteList = ['Err404', 'Login']
+const whiteList = ['Login', 'Err404'];
 
 router.beforeEach(async (to, from, next) => {
 	// 获取存储token
@@ -44,6 +44,7 @@ router.beforeEach(async (to, from, next) => {
 	}
 	// 没有token则全部重定向到登录页
 	else {
+		console.log(to.name);
 		// 免登录白名单，可直接进入
 		if (whiteList.indexOf(to.name) !== -1) next();
 		else next({ name: 'Login' });

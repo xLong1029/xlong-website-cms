@@ -323,15 +323,15 @@ export const routes = [
             },
           }
         ]
-      },
-      // 404
-      {
-        path: '*',
-        name: 'Err404',
-        component: () => import('views/Error/Err404'),
-        hidden: true
       }
     ]
+  },
+  // 404
+  {
+    path: '*',
+    name: 'Err404',
+    component: () => import('views/Error/Err404'),
+    hidden: true
   }
 ]
 
