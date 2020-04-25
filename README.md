@@ -12,9 +12,16 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 
 2. V2.0版本
 
-    移除jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态；<br/>
-    添加404页面和“可编辑表格”组件；<br/>
-    优化项目结构
+    移除jQuery插件，侧边栏组件改用原生JS方法重写，通过路由“siderbarName”来匹配高亮状态；  
+    添加404页面和“可编辑表格”组件；  
+    优化项目结构  
+
+3. V3.0版本  
+   项目 websiteCmsAdmin 改用 vue-cli 4.x 重构
+   UI框架iView至4.x版本(即ViewUI)  
+   优化侧边栏、可编辑表格组件和权限配置  
+   修复一堆功能BUG（详情查看V3.0分支readme）  
+   优化项目结构  
 
 ## 项目说明
 
@@ -170,18 +177,24 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 #### 2. websiteCmsAdmin 后台项目
 
 ```
-│  .babelrc
-│  .editorconfig
-│  .postcssrc.js
+│  .browserslistrc
+│  .eslintrc.js
+│  babel.config.js
+│  vue.config.js // 配置文件
 │  .gitignore
-│  index.html // 首页入口文件
 │  package.json
 │  README.md
+│
+├─public
+│  │ index.html // 首页入口文件
+│  │
+│  └─static // 静态资源
 │
 ├─.vscode // vscode配置，用于配置less
 │
 ├─src
 │  │  main.js // 项目入口js
+│  │  permission.js // 权限配置（路由守卫）
 │  │  app.js // 根组件
 │  │
 │  ├─assets // 资源目录，这里的资源会被wabpack构建
@@ -195,6 +208,7 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  ├─components // 功能组件
 │  │  |
 │  │  ├─Common // 通用组件
+│  │  ├─Table // 表格相关组件
 │  │  └─Image // 图片相关组件
 │  │
 │  ├─pages // 页面组件
@@ -214,18 +228,15 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 │  │    table_query.js // 表格查询
 │  │    upload_img.js // 上传图片
 │  │
-│  ├─common // 通用js模块
-│  │    common.js // 通用工具
-│  │    table_setting.js // 封装一些iView表格按钮渲染
-│  │    validate.js // 封装一些iView表单验证方法
-│  │  
 │  ├─utils 
 │  │    index.js // 封装一些工具函数
 │  │    request.js// 封装axios请求等工具  
+│  │    common.js // 通用常量
+│  │    table_setting.js // 封装一些iView表格按钮渲染
+│  │    validate.js // 封装一些iView表单验证方法
 │  │
 │  └─router // 路由配置
 │       index.js
-│       routes.js
 │
 ├─static // 静态资源
 │
@@ -252,21 +263,21 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 2. 安装后台依赖  
 > npm install 
 3. 运行后台项目  
-> npm run dev
+> npm run serve
 4. 访问地址：http://localhost:6061/admin
 
 * 代理请求已经配置好，可在config下配置proxyTable更改
 
-## 打包后台项目
+## 打包前台项目到后台中运行
 1. 在 websiteCmsAdmin 项目下  
 > npm run build
-2. 将打包好的dist文件复制到'websiteCmsClient\app\public\admin'目录下  
-3. 在 websiteCmsClient 项目下   
-> npm install --production
-4. 在 websiteCmsClient 项目启动  
+2. 将打包好的dist文件下所有内容复制到'websiteCmsClient\app\public\admin'目录下  
+3. 在 websiteCmsClient 项目启动  
 > npm run dev
 
-* 打包后运行 websiteCmsClient 可以通过 http://127.0.0.1:6060/index 和 http://127.0.0.1:6060/admin 来访问前台和后台
+* 打包后再启动 websiteCmsClient：  
+前台地址：http://127.0.0.1:6060/index  
+后台地址：http://127.0.0.1:6060/admin 或 http://127.0.0.1:6060/public/admin
 
 ## 应用部署
 

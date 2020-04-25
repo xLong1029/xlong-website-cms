@@ -4,7 +4,6 @@
  * 日期 : 2017-8-31
  * 版本 : version 1.0
  */
-import Common from 'common/common.js'
 
 export default {
 	data() {

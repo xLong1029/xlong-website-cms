@@ -10,7 +10,7 @@ class AdminController extends Controller {
     // 后台首页
 	async index() {
         this.ctx.response.type = 'html';
-		let page = await readFilePromise(path.resolve(__dirname, '../public/admin/dist/index.html'));
+		let page = await readFilePromise(path.resolve(__dirname, '../public/admin/index.html'));
         this.ctx.body = page;
 	}
 }

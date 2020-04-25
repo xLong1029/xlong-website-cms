@@ -4,15 +4,14 @@
  * 日期 : 2017-9-7
  * 版本 : version 1.0
  */
-import Common from 'common/common.js'
+/* eslint-disable */
+import { SetDefaultPic } from "utils/index.js";
 
 export default {
 	data() {
 		return{
             // 可接受的图片上传格式
             format: ['image/jpg', 'image/jpeg', 'image/png'],
-            // 上传状态，上传成功完成为finished
-            uploadStatus: '',
             // 上传状态，上传成功完成为finished
             uploadStatus: '',
             // 是否显示进度条
@@ -79,7 +78,7 @@ export default {
         },
         // 无法显示图片
         notFoundPic(event){
-            Common.SetDefaultPic(event, 2);
+            SetDefaultPic(event, 2);
         },
         // 错误提示
         errorTip(progress){

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
  * 功能 : 封装一些主要工具方法
  * 作者 : 罗永梅（381612175@qq.com）
@@ -42,9 +43,10 @@ export function GetCookie(cname) {
  * 删除cookie
  *
  * @param {*} cname  key名
+ * @param {*} path  path
  */
-export function DelCookie(cname) {
-  document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+export function DelCookie(cname, path = '/') {
+  document.cookie = `${cname}=''; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}`;
 }
 
 /**
@@ -182,8 +184,8 @@ export function AddClass(node, className) {
  */
 export function RemoveClass(node, className) {
   if (HasClass(node, className)) {
-      var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-      node.className = node.className.replace(reg, ' ');
+    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+    node.className = node.className.replace(reg, ' ');
   }
 }
 
@@ -193,11 +195,11 @@ export function RemoveClass(node, className) {
  * @param {*} node 节点
  * @param {*} className 类名
  */
-export function ToggleClass(node, className){
-  if(HasClass(node,className)){
-      RemoveClass(node, className);
+export function ToggleClass(node, className) {
+  if (HasClass(node, className)) {
+    RemoveClass(node, className);
   } else {
-      AddClass(node, className);
+    AddClass(node, className);
   }
 }
 
@@ -225,8 +227,8 @@ export function SiblingsNode(node) {
 export function SlideUp(node, height, duration) {
   // 解决slideUp闪现问题
   node.setAttribute('style', `height: ${height}px`);
-  setTimeout(()=>{
-    const time = duration/1000;
+  setTimeout(() => {
+    const time = duration / 1000;
     const style = `height: 0; transition: height ${time}s; -o-transition: height ${time}s; -webkit-transition: height ${time}s; -ms-transition: height ${time}s; -moz-transition: height ${time}s;`;
     node.setAttribute('style', style);
   }, 0);
@@ -240,7 +242,7 @@ export function SlideUp(node, height, duration) {
  * @param {*} duration 持续时间，以毫秒计
  */
 export function SlideDown(node, height, duration) {
-  const time = duration/1000;
+  const time = duration / 1000;
   const style = `height: ${height}px; transition: height ${time}s; -o-transition: height ${time}s; -webkit-transition: height ${time}s; -ms-transition: height ${time}s; -moz-transition: height ${time}s;`;
   node.setAttribute('style', style);
 }
@@ -280,7 +282,7 @@ export function StrToArr(string, s) {
  *
  * @param {*} arr 数组
  */
-export function UniqueArr(arr){
+export function UniqueArr(arr) {
   const res = new Map();
   return arr.filter(a => !res.has(a) && res.set(a, 1))
 }
@@ -290,9 +292,9 @@ export function UniqueArr(arr){
  *
  * @param {*} arr 数组
  */
-export function ArrRemovEmpty(arr){
+export function ArrRemovEmpty(arr) {
   return arr.filter(a => {
-      if(a != '' && a != null || a != undefined) return a;
+    if (a != '' && a != null || a != undefined) return a;
   });
 }
 
@@ -302,16 +304,16 @@ export function ArrRemovEmpty(arr){
  * @param {*} dateOne 第一个日期
  * @param {*} dateTwo 第二个日期
  */
-export function CompareDate (dateOne, dateTwo) {
+export function CompareDate(dateOne, dateTwo) {
   // 字符串
-  if(typeof(dateOne) == 'string' && typeof(dateTwo) == 'string'){
-      return ((new Date(dateOne.replace(/-/g,"\/"))) <= (new Date(dateTwo.replace(/-/g,"\/"))));
+  if (typeof (dateOne) == 'string' && typeof (dateTwo) == 'string') {
+    return ((new Date(dateOne.replace(/-/g, "\/"))) <= (new Date(dateTwo.replace(/-/g, "\/"))));
   }
   // DATE对象
-  else if(typeof(dateOne) == 'object' && typeof(dateTwo) == 'object') return (dateOne <= dateTwo);
+  else if (typeof (dateOne) == 'object' && typeof (dateTwo) == 'object') return (dateOne <= dateTwo);
   else {
-      console.log('日期比较格式不统一');
-      return false;
+    console.log('日期比较格式不统一');
+    return false;
   }
 }
 /**
@@ -322,20 +324,20 @@ export function CompareDate (dateOne, dateTwo) {
 export function SetDate(type) {
   const end = new Date();
   const start = new Date();
-  switch(type){
-      case 1: {
-          start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-          return [start, end];
-      }
-      case 2:{
-          start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-          return [start, end];
-      }
-      case 3:{
-          start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-          return [start, end];
-      }
-      default: console.log('get pic error'); return false;
+  switch (type) {
+    case 1: {
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+      return [start, end];
+    }
+    case 2: {
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+      return [start, end];
+    }
+    case 3: {
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+      return [start, end];
+    }
+    default: console.log('get pic error'); return false;
   }
 }
 
@@ -345,16 +347,16 @@ export function SetDate(type) {
  * @param {*} date 日期
  */
 export function FormatDate(date) {
-  if(!date) return;
-  if(typeof date =='string' && date.indexOf('-') != -1) return date;
-  else{
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let day = date.getDate();
-      let hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
-      let minute = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
-      let second = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
-      return year + "-" + month + "-" + day + ' ' + hour + ':' + minute + ':' + second;
+  if (!date) return;
+  if (typeof date == 'string' && date.indexOf('-') != -1) return date;
+  else {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
+    let minute = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
+    let second = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
+    return year + "-" + month + "-" + day + ' ' + hour + ':' + minute + ':' + second;
   }
 }
 
@@ -364,14 +366,35 @@ export function FormatDate(date) {
  * @param {*} event 当前对象
  * @param {*} type 1 显示默认头像，2 显示暂无图片
  */
-export function SetDefaultPic (event, type) {
-  switch(type){
-      case 1: event.currentTarget.src = require('assets/images/default-face.jpg'); break;
-      case 2: event.currentTarget.src = require('assets/images/no-found-pic.jpg'); break;
-      default: console.log('get pic error'); return false;
+export function SetDefaultPic(event, type) {
+  switch (type) {
+    case 1: event.currentTarget.src = require('assets/images/default-face.jpg'); break;
+    case 2: event.currentTarget.src = require('assets/images/no-found-pic.jpg'); break;
+    default: console.log('get pic error'); return false;
   }
   //控制不要一直跳动
   event.currentTarget.onerror = null;
+}
+
+/**
+ * 启动全屏
+ *
+ * @param {*} element 当前对象
+ */
+export function LaunchFullScreen(element) {
+  if (element.requestFullscreen) element.requestFullscreen();
+  else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
+  else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
+  else if (element.msRequestFullscreen) element.msRequestFullscreen();
+}
+
+/**
+ * 退出全屏
+ */
+export function ExitFullscreen() {
+  if (document.exitFullscreen) document.exitFullscreen();
+  else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+  else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
 }
 
 // 删除数组指定某个元素

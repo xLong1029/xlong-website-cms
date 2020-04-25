@@ -4,15 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+// 权限
+import './permission'
 
-// iView框架
-import iView from 'iview'
-// 定制iView主题样式
-// 这里有个坑，会出现各种css-loader,style-loader和less-loader的报错
-// 解决方法是安装最新的vue-cli和loader以来，webpack就不需要配置了，因为vue-cli会帮你配置安装的loader
+// ViewUI框架
+import ViewUI from 'view-design';
+// 定制ViewUI主题样式
 import './theme/index.less'
 
-Vue.use(iView)
+Vue.use(ViewUI);
 
 Vue.config.productionTip = false
 
@@ -25,9 +25,7 @@ Vue.prototype.GLOBAL = {
 }
 
 new Vue({
-	el: '#app',
-	router,
-	store,
-	template: '<App/>',
-	components: { App }
-})
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

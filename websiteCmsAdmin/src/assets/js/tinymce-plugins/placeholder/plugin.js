@@ -1,3 +1,4 @@
+/* eslint-disable */
 tinymce.PluginManager.add('placeholder', function(editor) {
     editor.on('init', function() {
         var label = new Label;

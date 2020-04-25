@@ -18,6 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+/* eslint-disable */
 import { GetCookie } from 'utils'
 import "tinymce/tinymce";
 import "../../assets/js/tinymce-langs/zh_CN";

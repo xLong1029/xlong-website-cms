@@ -1,3 +1,4 @@
+/* eslint-disable */
 tinymce.addI18n('zh_CN',{
 "Redo": "\u91cd\u590d",
 "Undo": "\u64a4\u6d88",
