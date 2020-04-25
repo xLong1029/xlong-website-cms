@@ -316,17 +316,17 @@ export default [
             },
           }
         ]
-      },
-      // 404
-      {
-        path: '*',
-        name: 'Err404',
-        component: () => import('pages/Error/Err404'),
-        meta: {
-          roles: ['admin', 'manager', 'editor']
-        },
-        hidden: true
       }
     ]
+  },
+  // 404
+  {
+    path: '*',
+    name: 'Err404',
+    component: () => import('pages/Error/Err404'),
+    meta: {
+      roles: ['admin', 'manager', 'editor']
+    },
+    hidden: true
   }
 ]
