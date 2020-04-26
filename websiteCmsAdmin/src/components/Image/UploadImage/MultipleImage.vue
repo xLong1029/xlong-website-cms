@@ -19,7 +19,7 @@
             <Progress v-if="showProgress" :percent="percentage" hide-info :stroke-width="3" style="width:340px;"></Progress>
         </template>
         <!-- 图片格式提示 -->
-        <span v-show="showHint" class="hint">
+        <span v-if="showHint" class="hint">
             * 图片格式要求：jpg、jpeg、png，
             <span v-if="sizeHint">建议尺寸： {{ sizeHint }}，</span>
             文件大小为
