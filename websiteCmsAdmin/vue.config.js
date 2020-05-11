@@ -18,24 +18,33 @@ module.exports = {
     // 生产环境是否生成 sourceMap 文件，将此设置为false不输出map文件可以加速生产构建
     productionSourceMap: false,
     // webpack配置，如果值是Object，则它将使用webpack-merge合并到最终配置中
-    configureWebpack:{
+    configureWebpack: {
         resolve: {
             alias: {
-              // 定义别名和插件位置
-              'vue$': 'vue/dist/vue.esm.js',
-              '@': resolve('src'),
-              'api': resolve('src/api'),
-              'mock': resolve('src/mock'),
-              'mixins': resolve('src/mixins'),
-              'assets': resolve('src/assets'),
-              'common': resolve('src/common'),
-              'components': resolve('src/components'),
-              'views': resolve('src/views'),
-              'utils': resolve( 'src/utils'),
-              'router': resolve( 'src/router'),
+                // 定义别名和插件位置
+                'vue$': 'vue/dist/vue.esm.js',
+                '@': resolve('src'),
+                'api': resolve('src/api'),
+                'mock': resolve('src/mock'),
+                'mixins': resolve('src/mixins'),
+                'assets': resolve('src/assets'),
+                'common': resolve('src/common'),
+                'components': resolve('src/components'),
+                'views': resolve('src/views'),
+                'utils': resolve('src/utils'),
+                'router': resolve('src/router'),
             }
-          }
-    },    
+        }
+    },
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                // 修改配置名称
+                args[0].title = '企业后台管理系统';
+                return args
+            })
+    },
     devServer: {
         // 端口
         port: 6061,
