@@ -36,6 +36,15 @@ module.exports = {
             }
           }
     },    
+    chainWebpack: config => {
+        config
+          .plugin('html')
+          .tap(args => {
+            // 修改配置名称
+            args[0].title= '企业后台管理系统';
+            return args
+          })
+      },
     devServer: {
         // 端口
         port: 6061,
