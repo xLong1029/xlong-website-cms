@@ -248,6 +248,21 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 ## 本地运行
 需要安装SqLite数据库和Node.js环境，建议先启动前台项目再启动后台项目。
 
+#### SQLite安装：
+1. 访问 [SQLite下载](https://www.sqlite.org/download.html)  下载页面，从 Windows 区下载预编译的二进制文件。
+2. 您需要下载 sqlite-tools-win32-*.zip 和 sqlite-dll-win32-*.zip 压缩文件。
+3. 创建文件夹 C:\sqlite，并在此文件夹下解压上面两个压缩文件，将得到 sqlite3.def、sqlite3.dll 和 sqlite3.exe 文件。
+4. 添加 C:\sqlite 到 PATH 环境变量，最后在命令提示符下，使用 sqlite3 命令，将显示如下结果。
+> C:\>sqlite3  
+> SQLite version 3.33.0 2020-08-14 13:23:32  
+> Enter ".help" for usage hints.  
+> Connected to a transient in-memory database.  
+> Use ".open FILENAME" to reopen on a persistent database. 
+> sqlite>
+
+若sqlite3依赖安装失败，可尝试安装windows-build-tools后再安装sqlite3依赖包：
+> npm install --global --production windows-build-tools
+
 #### 前台项目
 1. 进入前台目录
 > cd ./websiteCmsClient
