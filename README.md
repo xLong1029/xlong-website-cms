@@ -263,6 +263,11 @@ xlong-website-cms 是一套基于Egg + Vue + Webpack 开发的多页面和单页
 若sqlite3依赖安装失败，可尝试安装windows-build-tools后再安装sqlite3依赖包：
 > npm install --global --production windows-build-tools
 
+若运行时报错 Cannot find module 'xxxx\node_modules\_sqlite3@4.2.0@sqlite3\lib\binding\node-v93-win32-x64\node_sqlite3.node'
+删除 node_modules 目录，先安装sqlite3再装所有依赖：
+> npm install sqlite3 --save  
+> npm install
+
 #### 前台项目
 1. 进入前台目录
 > cd ./websiteCmsClient

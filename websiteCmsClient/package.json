@@ -12,7 +12,7 @@
     "egg-static": "^2.1.1",
     "egg-view-nunjucks": "^2.2.0",
     "moment": "^2.24.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "autod": "^3.0.1",
